@@ -1,6 +1,6 @@
-﻿namespace WinFormsApp1
+﻿namespace BYR_WindowsForms
 {
-    partial class Form1
+    partial class FormLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,7 +33,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(398, 148);
+            button1.Location = new Point(205, 129);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 0;
@@ -41,15 +41,15 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // Form1
+            // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(537, 183);
             Controls.Add(button1);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Name = "FormLogin";
+            Text = "FormLogin";
+            Load += FormLogin_Load;
             ResumeLayout(false);
         }
 
