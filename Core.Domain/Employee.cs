@@ -25,10 +25,25 @@ namespace Core.Domain
             Password = password;
         }
 
+
+
         public void ChangeStatus()
         {
 
         }
+
+        //SRP Changestatus of splitsten in beide?
+
+        internal static void ChangeEmployeeStatus(Employee employee, bool status)
+        {
+
+        }
+        internal static void ChangeVehicleStatus(Vehicle vehicle, bool status)
+        {
+
+        }
+
+
 
         public void HardCodeRide(Ride ride)
         {

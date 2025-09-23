@@ -11,6 +11,9 @@ namespace Core.Domain.Helper
 {
     internal class HardCodeData
     {
+
+        //Generate some hardcoded data for testing purposes
+
         internal List<Vehicle> GetVehicleData()
         {
             //create cargo

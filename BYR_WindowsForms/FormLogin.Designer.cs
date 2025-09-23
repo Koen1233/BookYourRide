@@ -28,33 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            buttonLogin = new Button();
+            labelEmail = new Label();
+            labelPassword = new Label();
+            textBoxEmail = new TextBox();
+            textBoxPassword = new TextBox();
+            linkLabelCreateAccount = new LinkLabel();
             SuspendLayout();
             // 
-            // button1
+            // buttonLogin
             // 
-            button1.Location = new Point(205, 129);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonLogin.Location = new Point(193, 129);
+            buttonLogin.Name = "buttonLogin";
+            buttonLogin.Size = new Size(182, 29);
+            buttonLogin.TabIndex = 0;
+            buttonLogin.Text = "Login";
+            buttonLogin.UseVisualStyleBackColor = true;
+            buttonLogin.Click += buttonLogin_click;
+            // 
+            // labelEmail
+            // 
+            labelEmail.AutoSize = true;
+            labelEmail.Location = new Point(134, 66);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(53, 20);
+            labelEmail.TabIndex = 1;
+            labelEmail.Text = "Email: ";
+            // 
+            // labelPassword
+            // 
+            labelPassword.AutoSize = true;
+            labelPassword.Location = new Point(114, 99);
+            labelPassword.Name = "labelPassword";
+            labelPassword.Size = new Size(73, 20);
+            labelPassword.TabIndex = 2;
+            labelPassword.Text = "Password:";
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Location = new Point(193, 63);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(182, 27);
+            textBoxEmail.TabIndex = 3;
+            // 
+            // textBoxPassword
+            // 
+            textBoxPassword.Location = new Point(193, 96);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.PasswordChar = '*';
+            textBoxPassword.Size = new Size(182, 27);
+            textBoxPassword.TabIndex = 4;
+            // 
+            // linkLabelCreateAccount
+            // 
+            linkLabelCreateAccount.AutoSize = true;
+            linkLabelCreateAccount.Location = new Point(193, 184);
+            linkLabelCreateAccount.Name = "linkLabelCreateAccount";
+            linkLabelCreateAccount.Size = new Size(110, 20);
+            linkLabelCreateAccount.TabIndex = 7;
+            linkLabelCreateAccount.TabStop = true;
+            linkLabelCreateAccount.Text = "Create Account";
+            linkLabelCreateAccount.LinkClicked += linkLabelCreateAccount_LinkClicked;
             // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(537, 183);
-            Controls.Add(button1);
+            ClientSize = new Size(517, 272);
+            Controls.Add(linkLabelCreateAccount);
+            Controls.Add(textBoxPassword);
+            Controls.Add(textBoxEmail);
+            Controls.Add(labelPassword);
+            Controls.Add(labelEmail);
+            Controls.Add(buttonLogin);
             Name = "FormLogin";
             Text = "FormLogin";
             Load += FormLogin_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
+        private Button buttonLogin;
+        private Label labelEmail;
+        private Label labelPassword;
+        private TextBox textBoxEmail;
+        private TextBox textBoxPassword;
+        private LinkLabel linkLabelCreateAccount;
     }
 }

@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Helper
 {
-    internal class RideBooker
+    internal class CancelHelper
     {
-        internal static void BookRide()
-        {
-
-        }  
-
         internal static void CancelRide()
         {
 

@@ -24,10 +24,16 @@ namespace Core.Domain
             LastName = lastName;
             Password = password;
         }
+
+
+
         public void BookRide()
         {
             //Naar transportation center want die heeft alle lists en info?
         }
+
+
+
 
         public void HardCodeRide(Ride ride)
         {

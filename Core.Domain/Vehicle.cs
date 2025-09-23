@@ -8,7 +8,7 @@ namespace Core.Domain
 {
     public class Vehicle
     {
-        public int Mileage { get; private set; }
+        public int Mileage { get; private set; } // int ranging from 0 to 100 (100%)
         public int WriteOff {  get; private set; }
         public int MaxLoad { get; private set; }
         public int PassengerSeats {  get; private set; }

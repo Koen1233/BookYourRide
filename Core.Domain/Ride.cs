@@ -26,9 +26,6 @@ namespace Core.Domain
             Vehicle = vehicle;
         }
 
-        public void CancelRide()
-        {
-           //Naar Transportation center want die heeft alle Lists en info?
-        }
+       
     }
 }
