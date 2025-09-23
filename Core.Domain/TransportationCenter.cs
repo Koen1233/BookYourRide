@@ -18,7 +18,11 @@ namespace Core.Domain
         public IReadOnlyList<Ride> Rides { get { return _rides; } }
         public IReadOnlyList<Vehicle> Vehicles { get { return _vehicles; } }
 
-
+        //For testing the form without loading data
+        public TransportationCenter()
+        {
+            Name = "test";
+        }
 
         //constructor to initialize the name and get all data from the HardCodeData helper class
         public TransportationCenter(string name)

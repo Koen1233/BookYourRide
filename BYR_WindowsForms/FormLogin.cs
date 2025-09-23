@@ -9,7 +9,10 @@ namespace BYR_WindowsForms
         public FormLogin()
         {
             InitializeComponent();
-            Center = new TransportationCenter("Move");
+            //Center = new TransportationCenter("Move");
+
+            //Testing without hardcoded data
+            Center = new TransportationCenter();
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -30,7 +33,9 @@ namespace BYR_WindowsForms
         private void linkLabelCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormRegistration formRegistration = new FormRegistration(Center);
+            
             formRegistration.Show();
+           
         }
     }
 }
