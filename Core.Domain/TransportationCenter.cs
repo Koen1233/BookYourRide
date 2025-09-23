@@ -1,4 +1,5 @@
-﻿using Infrastructure.DataAccess;
+﻿using Core.Domain.Helper;
+using Infrastructure.DataAccess;
 using Infrastructure.DataAccess.DTO;
 
 namespace Core.Domain
@@ -24,6 +25,39 @@ namespace Core.Domain
         {
             Name = name;
 
+            //For hardcode data generation
+            HardCodeData generateData = new HardCodeData();
+            
+            //Vehicle data
+            List<Vehicle> vehicles = generateData.GetVehicleData();
+            foreach (Vehicle vehicle in vehicles)
+            {
+                _vehicles.Add(vehicle);
+            }
+
+            //Ride Data
+            List<Ride> rides = generateData.GetRideData(vehicles);
+            foreach (Ride ride in rides)
+            {
+                _rides.Add(ride);
+            }
+
+            //Customer creation
+            List<Customer> customers = generateData.GetCustomeData(rides);
+            foreach (Customer customer in customers)
+            {
+                _customers.Add(customer);
+            }
+
+            //Employee Data
+            List<Employee> employees = generateData.GetEmployeeData(rides);
+            foreach (Employee employee in employees)
+            {
+                _employees.Add(employee);
+            }
+
+
+
             CargoRepository cargoRepository = new CargoRepository();
             List<CargoDTO> cargoData = cargoRepository.GetCargo();
             foreach (CargoDTO cargoDTO in cargoData)
@@ -36,8 +70,11 @@ namespace Core.Domain
                 {
                     Cargo cargo = new Cargo(cargoDTO.People);
                 }
-                //Cargo is transferred to the creation of vehicles objects to link them together
             }
+            //Cargo is transferred to the creation of vehicles objects to link them together but does not work with the DTO objects
+            //So all data will proceed to be generated in the Helper.HardcodeData class
+
+            
 
             //VehicleData
             VehicleRepository vehicleRepository = new VehicleRepository();
@@ -45,14 +82,9 @@ namespace Core.Domain
             foreach (VehicleDTO vehicleDTO in vehicleData)
             {
                 Vehicle vehicle = new Vehicle(vehicleDTO.Mileage, vehicleDTO.WriteOff, vehicleDTO.MaxLoad, vehicleDTO.PassengerSeats, vehicleDTO.Status, 
-                vehicleDTO.Carg);
+                vehicleDTO.Cargo);
                 _vehicles.Add(vehicle);
             }
-
-
-
-
-
 
             //EmployeeData
             EmployeeRepository employeeRepository = new EmployeeRepository();

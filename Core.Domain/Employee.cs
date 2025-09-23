@@ -30,8 +30,11 @@ namespace Core.Domain
 
         }
 
-        
-        
+        public void HardCodeRide(Ride ride)
+        {
+            _rides.Add(ride);
+        }
+
 
     }
 }

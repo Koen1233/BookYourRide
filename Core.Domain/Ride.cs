@@ -14,13 +14,16 @@ namespace Core.Domain
         public int Distance { get; private set; }
         public DateOnly Date { get; private set; }
 
-        public Ride(int price, string beginning, string end, int distance, DateOnly date)
+        public Vehicle Vehicle { get; private set; }
+
+        public Ride(int price, string beginning, string end, int distance, DateOnly date, Vehicle vehicle)
         {
             Price = price;
             Beginning = beginning;
             End = end;
             Distance = distance;
             Date = date;
+            Vehicle = vehicle;
         }
 
         public void CancelRide()

@@ -16,13 +16,14 @@ namespace Core.Domain
 
         public Cargo Cargo { get; private set; }
 
-        public Vehicle(int mileage, int writeOff, int Maxload, int passengerSeats, bool status)
+        public Vehicle(int mileage, int writeOff, int Maxload, int passengerSeats, bool status, Cargo cargo)
         {
             Mileage = mileage;
             WriteOff = writeOff;
             MaxLoad = Maxload;
             PassengerSeats = passengerSeats;
             Status = status;
+            Cargo = cargo;
         }
     }
 }

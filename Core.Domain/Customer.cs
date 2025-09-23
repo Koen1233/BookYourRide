@@ -28,5 +28,10 @@ namespace Core.Domain
         {
             //Naar transportation center want die heeft alle lists en info?
         }
+
+        public void HardCodeRide(Ride ride)
+        {
+            _rides.Add(ride);
+        }
     }
 }
