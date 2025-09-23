@@ -13,5 +13,16 @@ namespace Infrastructure.DataAccess.DTO
         public string End { get;  set; } = string.Empty;
         public int Distance { get;  set; }
         public DateOnly Date { get;  set; }
+
+        //To have a ride linked with a vehicle
+        //I think only for hardcore data (Database = innnerlink?)
+       
+        public VehicleDTO VehicleDTO { get; set; }
+
+        public RideDTO( VehicleDTO vehicleDTO)
+        {
+            VehicleDTO = vehicleDTO;
+        }
+        
     }
 }

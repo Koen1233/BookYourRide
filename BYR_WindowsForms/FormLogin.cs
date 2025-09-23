@@ -1,3 +1,5 @@
+using Core.Domain;
+
 namespace BYR_WindowsForms
 {
     public partial class FormLogin : Form
@@ -14,7 +16,7 @@ namespace BYR_WindowsForms
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            //TransportationCenter move = new TransportationCenter("Move");
+            TransportationCenter move = new TransportationCenter("Move");
         }
     }
 }

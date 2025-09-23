@@ -14,6 +14,8 @@ namespace Core.Domain
         public int PassengerSeats {  get; private set; }
         public bool Status {  get; private set; }
 
+        public Cargo Cargo { get; private set; }
+
         public Vehicle(int mileage, int writeOff, int Maxload, int passengerSeats, bool status)
         {
             Mileage = mileage;

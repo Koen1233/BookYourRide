@@ -23,21 +23,41 @@ namespace Core.Domain
         public TransportationCenter(string name)
         {
             Name = name;
-            
-            //Get all data to the lists
-            //RideData
-            RideRepository rideRepository = new RideRepository();
-            List<RideDTO> rideData = rideRepository.GetRides();
-            foreach (RideDTO rideDTO in rideData)
+
+            CargoRepository cargoRepository = new CargoRepository();
+            List<CargoDTO> cargoData = cargoRepository.GetCargo();
+            foreach (CargoDTO cargoDTO in cargoData)
             {
-                Ride ride = new Ride(rideDTO.Price, rideDTO.Beginning, rideDTO.End, rideDTO.Distance, rideDTO.Date);
-                _rides.Add(ride);
+                if(cargoDTO.People == 0)
+                {
+                    Cargo cargo = new Cargo(cargoDTO.Length, cargoDTO.Width, cargoDTO.Height, cargoDTO.Weight);
+                }
+                else
+                {
+                    Cargo cargo = new Cargo(cargoDTO.People);
+                }
+                //Cargo is transferred to the creation of vehicles objects to link them together
             }
+
+            //VehicleData
+            VehicleRepository vehicleRepository = new VehicleRepository();
+            List<VehicleDTO> vehicleData = vehicleRepository.GetVehicles(cargoData);
+            foreach (VehicleDTO vehicleDTO in vehicleData)
+            {
+                Vehicle vehicle = new Vehicle(vehicleDTO.Mileage, vehicleDTO.WriteOff, vehicleDTO.MaxLoad, vehicleDTO.PassengerSeats, vehicleDTO.Status, 
+                vehicleDTO.Carg);
+                _vehicles.Add(vehicle);
+            }
+
+
+
+
+
 
             //EmployeeData
             EmployeeRepository employeeRepository = new EmployeeRepository();
             List<EmployeeDTO> employeeData = employeeRepository.GetEmployees();
-            foreach(EmployeeDTO employeeDTO in employeeData)
+            foreach (EmployeeDTO employeeDTO in employeeData)
             {
                 Employee employee = new Employee(employeeDTO.Email, employeeDTO.FirstName, employeeDTO.LastName, employeeDTO.Password);
                 _employees.Add(employee);
@@ -52,13 +72,15 @@ namespace Core.Domain
                 _customers.Add(customer);
             }
 
-            //VehicleData
-            VehicleRepository vehicleRepository = new VehicleRepository();
-            List<VehicleDTO> vehicleData = vehicleRepository.GetVehicles();
-            foreach (VehicleDTO vehicleDTO in vehicleData)
+            
+
+            //RideData
+            RideRepository rideRepository = new RideRepository();
+            List<RideDTO> rideData = rideRepository.GetRides(vehicleData);
+            foreach (RideDTO rideDTO in rideData)
             {
-                Vehicle vehicle = new Vehicle(vehicleDTO.Mileage, vehicleDTO.WriteOff, vehicleDTO.MaxLoad, vehicleDTO.PassengerSeats, vehicleDTO.Status);
-                _vehicles.Add(vehicle);
+                Ride ride = new Ride(rideDTO.Price, rideDTO.Beginning, rideDTO.End, rideDTO.Distance, rideDTO.Date);
+                _rides.Add(ride);
             }
         }
 

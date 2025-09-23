@@ -9,30 +9,30 @@ namespace Infrastructure.DataAccess
 {
     public class VehicleRepository
     {
-        public List<VehicleDTO> GetVehicles()
+        public List<VehicleDTO> GetVehicles(List<CargoDTO> cargo)
         {
             List<VehicleDTO> vehicles = new List<VehicleDTO>
             {
-                new VehicleDTO
+                new VehicleDTO(cargo[0])
                 {
                     Mileage = 15000,
-                    WriteOff = 0,
-                    MaxLoad = 1200,
-                    PassengerSeats = 5,
+                    WriteOff = 90,
+                    MaxLoad = 20000,
+                    PassengerSeats = 2,
                     Status = true
                 },
-                new VehicleDTO
+                new VehicleDTO(cargo[2])
                 {
-                    Mileage = 45000,
-                    WriteOff = 1,
-                    MaxLoad = 2000,
+                    Mileage = 100000,
+                    WriteOff = 85,
+                    MaxLoad = 20000,
                     PassengerSeats = 2,
                     Status = false
                 },
-                new VehicleDTO
+                new VehicleDTO(cargo[1])
                 {
-                    Mileage = 3000,
-                    WriteOff = 0,
+                    Mileage = 35000,
+                    WriteOff = 99,
                     MaxLoad = 800,
                     PassengerSeats = 4,
                     Status = true
