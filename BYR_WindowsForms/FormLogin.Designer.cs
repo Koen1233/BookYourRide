@@ -34,6 +34,7 @@
             textBoxEmail = new TextBox();
             textBoxPassword = new TextBox();
             linkLabelCreateAccount = new LinkLabel();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // buttonLogin
@@ -90,11 +91,22 @@
             linkLabelCreateAccount.Text = "Create Account";
             linkLabelCreateAccount.LinkClicked += linkLabelCreateAccount_LinkClicked;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(193, 33);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(104, 24);
+            checkBox1.TabIndex = 8;
+            checkBox1.Text = "Employee?";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(517, 272);
+            Controls.Add(checkBox1);
             Controls.Add(linkLabelCreateAccount);
             Controls.Add(textBoxPassword);
             Controls.Add(textBoxEmail);
@@ -116,5 +128,6 @@
         private TextBox textBoxEmail;
         private TextBox textBoxPassword;
         private LinkLabel linkLabelCreateAccount;
+        private CheckBox checkBox1;
     }
 }
