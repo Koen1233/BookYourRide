@@ -70,12 +70,19 @@ namespace Core.Domain
             return false;
         }
 
-        public void TryRegistrate(string email, string firstName, string lastName, string password)
+        public bool TryRegistrate(string email, string firstName, string lastName, string password)
         {
+            for (int i = 0; i < _customers.Count; i++)
+            {
+                if (this._customers[i].Email == email)
+                {
+                    return false;
+                }
+            }
             //Create a new customer
             Customer customer = new Customer(email, firstName, lastName, password);
             _customers.Add(customer);
+            return true;
         }
-
     }
 }
