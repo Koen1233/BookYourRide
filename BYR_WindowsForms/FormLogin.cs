@@ -22,7 +22,11 @@ namespace BYR_WindowsForms
         private void linkLabelCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormRegistration formRegistration = new FormRegistration(Center);
-            formRegistration.Show();
+            this.Hide();
+            formRegistration.ShowDialog();
+            this.Show();
+            textBoxEmail.Clear();
+            textBoxPassword.Clear();
         }
 
 
@@ -36,9 +40,12 @@ namespace BYR_WindowsForms
                     if(textBoxEmail.Text == Center.Employees[i].Email && textBoxPassword.Text == Center.Employees[i].Password)
                     {
                         MessageBox.Show("Login successful!");
-                        //FormEmployee formEmployee = new FormEmployee(Center);
-                        //formEmployee.Show();
-                        //this.Hide();
+                        FormEmployee formEmployee = new FormEmployee(Center, Center.Employees[i]);
+                        this.Hide();
+                        formEmployee.ShowDialog();
+                        this.Show();
+                        textBoxEmail.Clear();
+                        textBoxPassword.Clear();
                         return;
                     }
                 }
@@ -50,9 +57,12 @@ namespace BYR_WindowsForms
                     if (textBoxEmail.Text == Center.Customers[i].Email && textBoxPassword.Text == Center.Customers[i].Password)
                     {
                         MessageBox.Show("Login successful!");
-                        //FormCustomer formCustomer = new FormCustomer(Center, Center.Customers[i]);
-                        //formCustomer.Show();
-                        //this.Hide();
+                        FormCustomer formCustomer = new FormCustomer(Center, Center.Customers[i]);
+                        this.Hide();
+                        formCustomer.ShowDialog();
+                        this.Show();
+                        textBoxEmail.Clear();
+                        textBoxPassword.Clear();
                         return;
                     }
                 }

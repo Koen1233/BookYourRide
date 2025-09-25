@@ -64,12 +64,6 @@ namespace Core.Domain
 
 
         //Operations
-        public bool TryLogin(Employee employee, Customer customer)
-        {
-            //to have a return path
-            return false;
-        }
-
         public bool TryRegistrate(string email, string firstName, string lastName, string password)
         {
             for (int i = 0; i < _customers.Count; i++)
@@ -83,6 +77,11 @@ namespace Core.Domain
             Customer customer = new Customer(email, firstName, lastName, password);
             _customers.Add(customer);
             return true;
+        }
+
+        public void AddRide(Ride ride)
+        {
+
         }
     }
 }

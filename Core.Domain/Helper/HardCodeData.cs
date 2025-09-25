@@ -40,7 +40,9 @@ namespace Core.Domain.Helper
             {
                 new Ride(50, "Venlo", "Tilburg", 100, new DateOnly(2025, 09, 21), vehicles[0]),
                 new Ride(100, "Amsterdam", "Groningen", 200, new DateOnly(2025, 10, 25), vehicles[1]),
-                new Ride(600, "Maastricht", "Friesland", 300, new DateOnly(2025, 12, 09), vehicles[2])
+                new Ride(600, "Maastricht", "Friesland", 300, new DateOnly(2025, 12, 09), vehicles[2]),
+                //for easy customer testing
+                new Ride(50, "Venlo", "Tilburg", 100, new DateOnly(2025, 12, 21), vehicles[0])
             };
             return rides;
         }
@@ -53,9 +55,14 @@ namespace Core.Domain.Helper
             Customer c1 = new Customer("alice.customer@example.com", "Alice", "Johnson", "alicePass123"); customers.Add(c1);
             Customer c2 = new Customer("bob.customer@example.com", "Bob", "Smith", "bobPass456"); customers.Add(c2);
             Customer c3 = new Customer("carol.customer@example.com", "Carol", "Williams", "carolPass789"); customers.Add(c3);
+            //for easy customer testing
+            Customer test = new Customer("a", "a", "a", "a"); customers.Add(test);
+            
             c1.HardCodeRide(rides[0]);
             c2.HardCodeRide(rides[1]);
             c3.HardCodeRide(rides[2]);
+
+            test.HardCodeRide(rides[3]);
 
             return customers;
         }
@@ -67,9 +74,14 @@ namespace Core.Domain.Helper
             Employee e1 = new Employee("Koenverhalle@gmail.com", "Koen", "Verhalle", "Ridetest"); employees.Add(e1);
             Employee e2 = new Employee("JandeMan@gmail.com", "Jan", "Man", "1234"); employees.Add(e2);
             Employee e3 = new Employee("PietvdVelden@gmail.com", "Piet", "van de Velden", "54321"); employees.Add(e3);
+            //for easy employee testing
+            Employee test = new Employee("b", "b", "b", "b"); employees.Add(test);
+
             e1.HardCodeRide(rides[0]);
             e2.HardCodeRide(rides[1]);
             e3.HardCodeRide(rides[2]);
+
+            test.HardCodeRide(rides[3]);
 
             return employees;
         }

@@ -41,6 +41,7 @@
             label5 = new Label();
             label6 = new Label();
             buttonCreateAccount = new Button();
+            buttonReturn = new Button();
             SuspendLayout();
             // 
             // textBoxFirstName
@@ -55,7 +56,7 @@
             textBoxRepeatEmail.Location = new Point(111, 226);
             textBoxRepeatEmail.Name = "textBoxRepeatEmail";
             textBoxRepeatEmail.Size = new Size(228, 27);
-            textBoxRepeatEmail.TabIndex = 1;
+            textBoxRepeatEmail.TabIndex = 3;
             // 
             // textBoxEmail
             // 
@@ -69,7 +70,7 @@
             textBoxLastName.Location = new Point(111, 115);
             textBoxLastName.Name = "textBoxLastName";
             textBoxLastName.Size = new Size(228, 27);
-            textBoxLastName.TabIndex = 3;
+            textBoxLastName.TabIndex = 1;
             // 
             // textBoxPassword
             // 
@@ -146,16 +147,27 @@
             buttonCreateAccount.Location = new Point(145, 382);
             buttonCreateAccount.Name = "buttonCreateAccount";
             buttonCreateAccount.Size = new Size(161, 29);
-            buttonCreateAccount.TabIndex = 12;
+            buttonCreateAccount.TabIndex = 6;
             buttonCreateAccount.Text = "Create account";
             buttonCreateAccount.UseVisualStyleBackColor = true;
             buttonCreateAccount.Click += buttonCreateAccount_Click;
+            // 
+            // buttonReturn
+            // 
+            buttonReturn.Location = new Point(12, 12);
+            buttonReturn.Name = "buttonReturn";
+            buttonReturn.Size = new Size(71, 26);
+            buttonReturn.TabIndex = 12;
+            buttonReturn.Text = "Return";
+            buttonReturn.UseVisualStyleBackColor = true;
+            buttonReturn.Click += buttonReturn_Click;
             // 
             // FormRegistration
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 491);
+            Controls.Add(buttonReturn);
             Controls.Add(buttonCreateAccount);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -191,5 +203,6 @@
         private Label label5;
         private Label label6;
         private Button buttonCreateAccount;
+        private Button buttonReturn;
     }
 }

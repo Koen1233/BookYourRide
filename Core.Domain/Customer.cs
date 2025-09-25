@@ -27,7 +27,7 @@ namespace Core.Domain
 
 
 
-        public void BookRide()
+        public void BookRide(TransportationCenter Center)
         {
             //Naar transportation center want die heeft alle lists en info?
         }

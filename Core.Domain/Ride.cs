@@ -26,6 +26,9 @@ namespace Core.Domain
             Vehicle = vehicle;
         }
 
-       
+       public override string ToString()
+        {
+            return $"{Date} - {Beginning} to {End}";
+        }
     }
 }

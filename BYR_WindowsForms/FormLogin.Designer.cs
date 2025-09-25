@@ -42,7 +42,7 @@
             buttonLogin.Location = new Point(193, 129);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(182, 29);
-            buttonLogin.TabIndex = 0;
+            buttonLogin.TabIndex = 3;
             buttonLogin.Text = "Login";
             buttonLogin.UseVisualStyleBackColor = true;
             buttonLogin.Click += buttonLogin_click;
@@ -70,7 +70,7 @@
             textBoxEmail.Location = new Point(193, 63);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(182, 27);
-            textBoxEmail.TabIndex = 3;
+            textBoxEmail.TabIndex = 1;
             // 
             // textBoxPassword
             // 
@@ -78,15 +78,16 @@
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new Size(182, 27);
-            textBoxPassword.TabIndex = 4;
+            textBoxPassword.TabIndex = 2;
             // 
             // linkLabelCreateAccount
             // 
             linkLabelCreateAccount.AutoSize = true;
-            linkLabelCreateAccount.Location = new Point(193, 184);
+            linkLabelCreateAccount.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            linkLabelCreateAccount.Location = new Point(193, 177);
             linkLabelCreateAccount.Name = "linkLabelCreateAccount";
-            linkLabelCreateAccount.Size = new Size(110, 20);
-            linkLabelCreateAccount.TabIndex = 7;
+            linkLabelCreateAccount.Size = new Size(114, 20);
+            linkLabelCreateAccount.TabIndex = 4;
             linkLabelCreateAccount.TabStop = true;
             linkLabelCreateAccount.Text = "Create Account";
             linkLabelCreateAccount.LinkClicked += linkLabelCreateAccount_LinkClicked;

@@ -49,12 +49,17 @@ namespace BYR_WindowsForms
                     MessageBox.Show("Account created successfully!");
                     this.Close();
                     return;
-                } 
+                }
             }
             else
             {
                 MessageBox.Show("Emails or passwords do not match!");
             }
+        }
+
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
