@@ -19,6 +19,7 @@ namespace Core.Domain
         {
             People = people;
         }
+
         //Or CargoTransport
         public Cargo(int length, int width, int height, int weight)
         {

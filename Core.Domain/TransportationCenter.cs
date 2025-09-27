@@ -66,6 +66,7 @@ namespace Core.Domain
         //Operations
         public bool TryRegistrate(string email, string firstName, string lastName, string password)
         {
+            //Check for existing email
             for (int i = 0; i < _customers.Count; i++)
             {
                 if (this._customers[i].Email == email)

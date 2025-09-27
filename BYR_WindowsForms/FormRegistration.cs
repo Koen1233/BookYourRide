@@ -27,6 +27,7 @@ namespace BYR_WindowsForms
 
         }
 
+        //buttons
         private void buttonCreateAccount_Click(object sender, EventArgs e)
         {
             //Check for empty fields

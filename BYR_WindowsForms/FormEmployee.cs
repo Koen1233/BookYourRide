@@ -33,6 +33,8 @@ namespace BYR_WindowsForms
             UpdateRideListBox();
         }
 
+
+        //Listboxes
         private void listBoxAllRides_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedRide = listBoxAllRides.SelectedItem as Ride;
@@ -60,10 +62,13 @@ namespace BYR_WindowsForms
             }
         }
 
+
+        //buttons
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void buttonCancelRide_Click(object sender, EventArgs e)
         {
 

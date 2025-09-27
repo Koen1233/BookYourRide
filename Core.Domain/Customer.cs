@@ -30,6 +30,7 @@ namespace Core.Domain
         public void BookRide(TransportationCenter Center)
         {
             //Naar transportation center want die heeft alle lists en info?
+            //Of een helper class ivm SRP?
         }
 
 

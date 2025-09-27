@@ -11,7 +11,7 @@ namespace BYR_WindowsForms
         {
             InitializeComponent();
             Center = new TransportationCenter("Move");
-            //Center = new TransportationCenter();//Testing without hardcoded data
+            //Center = new TransportationCenter();//For testing without loading hardcoded data
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -19,6 +19,8 @@ namespace BYR_WindowsForms
 
         }
 
+
+        //button and link clicks
         private void linkLabelCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormRegistration formRegistration = new FormRegistration(Center);
@@ -28,8 +30,6 @@ namespace BYR_WindowsForms
             textBoxEmail.Clear();
             textBoxPassword.Clear();
         }
-
-
 
         private void buttonLogin_click(object sender, EventArgs e)
         {
@@ -68,19 +68,6 @@ namespace BYR_WindowsForms
                 }
             }
             MessageBox.Show("Email or password is incorrect");
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                isEmployee = true;
-                return;
-            }
-            else if (checkBox1.Checked == false)
-            {
-                isEmployee = false;
-            }
         }
     }
 }

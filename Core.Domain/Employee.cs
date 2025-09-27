@@ -32,7 +32,7 @@ namespace Core.Domain
 
         }
 
-        //SRP Changestatus of splitsten in beide?
+        //SRP Changestatus of splitsten in onderstaande?
 
         internal static void ChangeEmployeeStatus(Employee employee, bool status)
         {
