@@ -103,8 +103,8 @@ namespace BYR_WindowsForms
         }
         private void UpdateTextBoxes(Ride ride)
         {
-            textBoxDistance.Text = ride.Distance.ToString();
-            textBoxPrice.Text = ride.Price.ToString();
+            textBoxDistance.Text = $"{ride.Distance.ToString()} km";
+            textBoxPrice.Text = $"€ {ride.Price.ToString()}";
         }
 
        

@@ -94,7 +94,7 @@
             // buttonCancelRide
             // 
             buttonCancelRide.Enabled = false;
-            buttonCancelRide.Location = new Point(271, 297);
+            buttonCancelRide.Location = new Point(86, 297);
             buttonCancelRide.Name = "buttonCancelRide";
             buttonCancelRide.Size = new Size(179, 49);
             buttonCancelRide.TabIndex = 11;
@@ -115,7 +115,7 @@
             // buttonViewPersonnel
             // 
             buttonViewPersonnel.Enabled = false;
-            buttonViewPersonnel.Location = new Point(86, 297);
+            buttonViewPersonnel.Location = new Point(271, 352);
             buttonViewPersonnel.Name = "buttonViewPersonnel";
             buttonViewPersonnel.Size = new Size(179, 49);
             buttonViewPersonnel.TabIndex = 18;
