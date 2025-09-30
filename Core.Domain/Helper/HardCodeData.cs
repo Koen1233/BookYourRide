@@ -16,6 +16,18 @@ namespace Core.Domain.Helper
 
         internal List<Vehicle> GetVehicleData()
         {
+            //create vehicles and link them to cargo
+            List<Vehicle> vehicles = new List<Vehicle> //Vehicles hebben geen cargo meer maar de rit zelf
+            {
+                new Vehicle(15000, 90, 20000, 2, true, VehicleType.Truck),
+                new Vehicle(100000, 85, 20000, 2, true, VehicleType.Truck),
+                new Vehicle(35000, 99, 800, 4, true, VehicleType.Taxi )
+            };
+            return vehicles;
+        } 
+
+        internal List<Ride> GetRideData(List<Vehicle> vehicles)
+        {
             //create cargo
             List<Cargo> cargo = new List<Cargo>
             {
@@ -24,25 +36,13 @@ namespace Core.Domain.Helper
                 new Cargo(30, 1, 2, 5000)
             };
 
-            //create vehicles and link them to cargo
-            List<Vehicle> vehicles = new List<Vehicle>
-            {
-                new Vehicle(15000, 90, 20000, 2, true, cargo[0]),
-                new Vehicle(100000, 85, 20000, 2, true, cargo[2]),
-                new Vehicle(35000, 99, 800, 4, true, cargo[1])
-            };
-            return vehicles;
-        } 
-
-        internal List<Ride> GetRideData(List<Vehicle> vehicles)
-        {
             List<Ride> rides = new List<Ride>()
             {
-                new Ride(50, "Venlo", "Tilburg", 100, new DateOnly(2025, 09, 21), vehicles[0]),
-                new Ride(100, "Amsterdam", "Groningen", 200, new DateOnly(2025, 10, 25), vehicles[1]),
-                new Ride(600, "Maastricht", "Friesland", 300, new DateOnly(2025, 12, 09), vehicles[2]),
+                new Ride(50, "Venlo", "Tilburg", 100, new DateOnly(2025, 09, 21), vehicles[0], cargo[0]),
+                new Ride(100, "Amsterdam", "Groningen", 200, new DateOnly(2025, 10, 25), vehicles[1], cargo[2]),
+                new Ride(600, "Maastricht", "Friesland", 300, new DateOnly(2025, 12, 09), vehicles[2], cargo[1]),
                 //for easy customer testing
-                new Ride(50, "Venlo", "Tilburg", 100, new DateOnly(2025, 12, 21), vehicles[0])
+                new Ride(50, "Venlo", "Tilburg", 100, new DateOnly(2025, 12, 21), vehicles[0], cargo[0])
             };
             return rides;
         }

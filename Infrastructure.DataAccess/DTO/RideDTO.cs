@@ -14,8 +14,8 @@ namespace Infrastructure.DataAccess.DTO
         public int Distance { get;  set; }
         public DateOnly Date { get;  set; }
 
-        //To have a ride linked with a vehicle
-        //I think only for hardcore data (Database = innnerlink?)
+        //To have a ride linked with a vehicle?
+        //I think only for hardcore data (Database = innner join?)
        
         public VehicleDTO VehicleDTO { get; set; }
 

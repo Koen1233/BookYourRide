@@ -16,7 +16,9 @@ namespace Core.Domain
 
         public Vehicle Vehicle { get; private set; }
 
-        public Ride(int price, string beginning, string end, int distance, DateOnly date, Vehicle vehicle)
+        public Cargo Cargo { get; private set; }
+
+        public Ride(int price, string beginning, string end, int distance, DateOnly date, Vehicle vehicle, Cargo cargo)
         {
             Price = price;
             Beginning = beginning;
@@ -24,9 +26,10 @@ namespace Core.Domain
             Distance = distance;
             Date = date;
             Vehicle = vehicle;
+            Cargo = cargo;
         }
 
-       public override string ToString()
+        public override string ToString()
         {
             return $"{Date} - {Beginning} to {End}";
         }
