@@ -12,13 +12,13 @@ namespace Core.Domain
         public string Beginning { get; private set; }
         public string End { get; private set; }
         public int Distance { get; private set; }
-        public DateOnly Date { get; private set; }
+        public DateTime Date { get; private set; } //verandert van DateOnly
 
         public Vehicle Vehicle { get; private set; }
 
         public Cargo Cargo { get; private set; }
 
-        public Ride(int price, string beginning, string end, int distance, DateOnly date, Vehicle vehicle, Cargo cargo)
+        public Ride(int price, string beginning, string end, int distance, DateTime date, Vehicle vehicle, Cargo cargo)
         {
             Price = price;
             Beginning = beginning;

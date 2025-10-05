@@ -5,7 +5,7 @@ namespace BYR_WindowsForms
     public partial class FormLogin : Form
     {
         public TransportationCenter Center;
-        internal bool isEmployee;
+        
 
         public FormLogin()
         {

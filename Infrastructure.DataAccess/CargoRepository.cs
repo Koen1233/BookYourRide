@@ -11,33 +11,8 @@ namespace Infrastructure.DataAccess
     {
         public List<CargoDTO> GetCargo()
         {
-            List<CargoDTO> cargo = new List<CargoDTO>
-            {
-                new CargoDTO
-                {
-                    //People = 0,
-                    Length = 50,
-                    Width = 4,
-                    Height = 2,
-                    Weight = 10000
-                },
-                new CargoDTO
-                {
-                    People = 4,
-                    //Length = 0,
-                    //Width = 0,
-                    //Height = 0,
-                    //Weight = 0
-                },
-                new CargoDTO
-                {
-                    //People = 0,
-                    Length = 30,
-                    Width = 1,
-                    Height = 2,
-                    Weight = 5000
-                }
-            };
+            List<CargoDTO> cargo = new List<CargoDTO>();
+
             return cargo;
         }
 

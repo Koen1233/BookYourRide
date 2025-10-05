@@ -12,17 +12,15 @@ namespace Infrastructure.DataAccess.DTO
         public string Beginning { get;  set; } = string.Empty;
         public string End { get;  set; } = string.Empty;
         public int Distance { get;  set; }
-        public DateOnly Date { get;  set; }
-
-        //To have a ride linked with a vehicle?
-        //I think only for hardcore data (Database = innner join?)
-       
+        public DateTime Date { get;  set; }
         public VehicleDTO VehicleDTO { get; set; }
+        public CargoDTO CargoDTO { get; set; }
 
-        public RideDTO( VehicleDTO vehicleDTO)
+
+        public RideDTO(VehicleDTO vehicleDTO, CargoDTO cargoDTO)
         {
             VehicleDTO = vehicleDTO;
+            CargoDTO = cargoDTO;    
         }
-        
     }
 }

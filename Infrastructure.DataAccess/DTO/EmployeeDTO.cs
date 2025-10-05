@@ -12,7 +12,9 @@ namespace Infrastructure.DataAccess.DTO
         public string FirstName { get;  set; } = string.Empty;
         public string LastName { get;  set; } = string.Empty;
         public string Password { get;  set; } = string.Empty;
+        public bool Status { get; set; }
 
         public List<RideDTO> Rides { get; set; } = new List<RideDTO>();
+
     }
 }

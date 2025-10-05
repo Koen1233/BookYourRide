@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Core.Domain
 {
     public class Employee
@@ -12,17 +13,23 @@ namespace Core.Domain
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Password { get; private set; } //of alles private, een wachtwoord niet zomaar ophalen?
+        public bool Status { get; private set; }
 
         private List<Ride> _rides = new();
 
         public IReadOnlyList<Ride> Rides { get { return _rides; } }
 
-        public Employee(string email, string firstName, string lastName, string password)
+        public Employee(string email, string firstName, string lastName, string password, bool status, List<Ride> rides)
         {
             Email = email;
             FirstName = firstName;
             LastName = lastName;
             Password = password;
+            Status = status;
+            foreach (Ride ride in rides)
+            {
+                _rides.Add(ride);
+            }
         }
 
 

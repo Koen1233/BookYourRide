@@ -13,15 +13,7 @@ namespace Infrastructure.DataAccess.DTO
         public int MaxLoad { get;  set; }
         public int PassengerSeats { get;  set; }
         public bool Status { get;  set; }
+        public VehicleTypeDTO VehicleTypeDTO { get; set; }
 
-
-        //Linking Vehicle with Cargo
-        public CargoDTO Cargo { get; set; }
-
-
-        public VehicleDTO(CargoDTO cargo)
-        {
-            Cargo = cargo;
-        }
     }
 }

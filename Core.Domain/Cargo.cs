@@ -18,11 +18,16 @@ namespace Core.Domain
         public Cargo(int people)
         {
             People = people;
+            Length = 0;
+            Width = 0;
+            Height = 0;
+            Weight = 0;
         }
 
         //Or CargoTransport
         public Cargo(int length, int width, int height, int weight)
         {
+            People = 0;
             Length = length;
             Width = width;
             Height = height;
