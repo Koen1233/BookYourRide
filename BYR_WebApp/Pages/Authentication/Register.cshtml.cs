@@ -1,8 +1,10 @@
+using Azure;
+using BYR_WebApp.Helpers.Mappers;
 using BYR_WebApp.Models;
+using Core.Domain;
 using Core.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Core.Domain;
 
 namespace BYR_WebApp.Pages.Authentication
 {
@@ -31,14 +33,15 @@ namespace BYR_WebApp.Pages.Authentication
             RegisterService service = new RegisterService();
             if (service.CheckDuplicateEmail(Customer.Email) == true)
             {
-                //Text to show email already exists
+                //Show error message for duplicate emails
                 return;
             }
             else
             {
-                service.TryRegister(Customer.Email, Customer.FirstName, Customer.LastName, Customer.Password);
-                //Text to show registration successful
-                return;
+                service.TryRegister(Customer.Map());//Map gebruikt het CustomerModel en geeft Customer terug coor de Domain laag
+                
+                //Redirect to login page
+                Response.Redirect("/Authentication/TryLogin");
             }
         }
     }

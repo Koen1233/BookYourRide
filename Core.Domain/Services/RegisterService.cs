@@ -17,6 +17,7 @@ namespace Core.Domain.Services
             CustomerRepository customerRepository = new CustomerRepository();
             if (customerRepository.CheckDuplicateEmail(customer) == true)
             {
+                //if true, then there is allready this email adress, throw exeption?
                 return true;
             }
             else
@@ -25,23 +26,21 @@ namespace Core.Domain.Services
             }
         }
 
-        public bool TryRegister(string email, string firstName, string lastName, string password)
+        public bool TryRegister(Customer newCustomer)
         {
-            CustomerDTO newCustomer = new CustomerDTO();
-            newCustomer.Email = email;
-            newCustomer.FirstName = firstName;
-            newCustomer.LastName = lastName;
-            newCustomer.Password = password;
-
-
             CustomerRepository customerRepository = new CustomerRepository();
-            if (customerRepository.TryRegister(newCustomer) == true)
+            if (customerRepository.TryRegister(new CustomerDTO()
             {
-                return true;
+                Email = newCustomer.Email,
+                FirstName = newCustomer.FirstName,
+                LastName = newCustomer.LastName,
+                Password = newCustomer.Password }) == true) //Stil the IF statement
+            { 
+                return true; //If succesfull
             }
             else
             {
-                return false;
+                return false;//Else i not succesfull (Still needed, because all the checks should have been done at this point
             }
         }
     }

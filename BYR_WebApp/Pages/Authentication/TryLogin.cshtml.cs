@@ -27,11 +27,11 @@ namespace BYR_WebApp.Pages.Authentication
             LoginService service = new LoginService();
             if(service.TryLogin(Login.Email, Login.Password) == true)
             {
-                //Show errormessage in display
-                return;
+                Response.Redirect("/Ride/Actions");
             }
             else
-            {               
+            {
+                //Show errormessage in display
                 return;
             }
             

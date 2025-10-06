@@ -49,15 +49,17 @@ namespace Infrastructure.DataAccess
             MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?; database=bookyourride");
             mysqlConnection.Open();
 
-            //Command does not work yet
-            MySqlCommand mysqlCommand = new MySqlCommand(   
-            "INSERT INTO bookyourride.customer (email, firstName, lastName, password)" +
-            $"VALUES({customer.Email}, {customer.FirstName}, {customer.LastName}, {customer.Password})"
-                , mysqlConnection);
+
+            MySqlCommand mysqlCommand = new MySqlCommand("INSERT INTO bookyourride.customer (email, firstName, lastName, password) VALUES (@email, @firstName, @lastName, @password);", mysqlConnection);
+            mysqlCommand.Parameters.AddWithValue("@email", customer.Email);
+            mysqlCommand.Parameters.AddWithValue("@firstName", customer.FirstName);
+            mysqlCommand.Parameters.AddWithValue("@lastName", customer.LastName);
+            mysqlCommand.Parameters.AddWithValue("@password", customer.Password);
+            mysqlCommand.ExecuteNonQuery();
+                
 
             mysqlConnection.Close();
             return true;
-    
         }
         
 
