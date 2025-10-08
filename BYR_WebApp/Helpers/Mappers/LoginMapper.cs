@@ -9,7 +9,9 @@ namespace BYR_WebApp.Helpers.Mappers
         {
             return new Login(
                 loginModel.Email,
-                loginModel.Password);
+                loginModel.Password,
+                loginModel.IsEmployee
+            );
         }
     }
 }

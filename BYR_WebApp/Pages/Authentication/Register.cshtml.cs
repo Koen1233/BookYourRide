@@ -19,8 +19,6 @@ namespace BYR_WebApp.Pages.Authentication
 
         public IActionResult OnPost()
         {
-           
-            //Check if passwords match
             if (CustomerModel.Password != CustomerModel.ConfirmPassword)
             {
                 ModelState.AddModelError(string.Empty, "Passwords do not match");
@@ -38,9 +36,6 @@ namespace BYR_WebApp.Pages.Authentication
            
 
             service.TryRegister(CustomerModel.Map());//Map gebruikt het CustomerModel en geeft Customer terug voor de Domain laag
-
-            //Redirect to login page
-            //Response.Redirect("/Authentication/TryLogin");
             return Redirect("/Authentication/TryLogin");
         }
     }

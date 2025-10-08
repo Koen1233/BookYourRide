@@ -13,28 +13,25 @@ namespace BYR_WebApp.Pages.Authentication
 
         public void OnGet()
         {
-            //Ophalen emails??
+            
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
-
-
-            //Implement login service
             LoginService service = new LoginService();
-            //if(service.TryLogin(Login.Email, Login.Password) == true)
             if(service.TryLogin(LoginModel.Map()) == true)
             {
-                Response.Redirect("/Ride/Actions");
+                //Employee naar een andere pagina redirecten, of obv cookies bepalen wat er te zien is?
+                return Redirect("/Ride/Actions");
             }
-            else
+            else //if login failed
             {
-                //Show errormessage in display
-                return;
+                ModelState.AddModelError(string.Empty, "Email or Password is incorrect.");
+                return Page();
             }
             
         }

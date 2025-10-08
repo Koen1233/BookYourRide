@@ -19,5 +19,8 @@ namespace BYR_WebApp.Models
 
         public string Password { get; set; } = string.Empty;
 
+        [Display(Name = "Logging in as an Employee?")]
+        public bool IsEmployee { get; set;  } = false;
+
     }
 }

@@ -30,32 +30,31 @@ namespace BYR_WindowsForms
         //buttons
         private void buttonCreateAccount_Click(object sender, EventArgs e)
         {
-            //Check for empty fields
-            if (textBoxEmail.Text == "" || textBoxFirstName.Text == "" || textBoxLastName.Text == "" || textBoxPassword.Text == "" || textBoxRepeatEmail.Text == "" || textBoxRepeatPassword.Text == "")
-            {
-                MessageBox.Show("Please fill in all fields!");
-                return;
-            }
-            //Check for matching emails and passwords
-            else if (textBoxEmail.Text == textBoxRepeatEmail.Text && textBoxPassword.Text == textBoxRepeatPassword.Text)
-            {
-                bool succesfullCreation = Center.TryRegistrate(textBoxEmail.Text, textBoxFirstName.Text, textBoxLastName.Text, textBoxPassword.Text);
-                if (succesfullCreation == false)
-                {
-                    MessageBox.Show("This Email address allready has an account!");
-                    return;
-                }
-                else if (succesfullCreation == true)
-                {
-                    MessageBox.Show("Account created successfully!");
-                    this.Close();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Emails or passwords do not match!");
-            }
+            ////Check for empty fields
+            //if (textBoxEmail.Text == "" || textBoxFirstName.Text == "" || textBoxLastName.Text == "" || textBoxPassword.Text == "" || textBoxRepeatEmail.Text == "" || textBoxRepeatPassword.Text == "")
+            //{
+            //    MessageBox.Show("Please fill in all fields!");
+            //    return;
+            //}
+            ////Check for matching emails and passwords
+            //else if (textBoxEmail.Text == textBoxRepeatEmail.Text && textBoxPassword.Text == textBoxRepeatPassword.Text)
+            //{
+            //    bool succesfullCreation = Center.TryRegistrate(textBoxEmail.Text, textBoxFirstName.Text, textBoxLastName.Text, textBoxPassword.Text);
+            //    if (succesfullCreation == false)
+            //    {
+            //        MessageBox.Show("This Email address allready has an account!");
+            //        return;
+            //    }
+            //    else if (succesfullCreation == true)
+            //    {
+            //        MessageBox.Show("Account created successfully!");
+            //        this.Close();
+            //        return;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Emails or passwords do not match!");
+            //}
         }
 
         private void buttonReturn_Click(object sender, EventArgs e)

@@ -14,7 +14,8 @@ namespace Core.Domain.Helpers.Mappers
             return new LoginDTO
             {
                 Email = login.Email,
-                Password = login.Password
+                Password = login.Password,
+                IsEmployee = login.IsEmployee
             };
         }
     }

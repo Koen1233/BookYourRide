@@ -1,4 +1,5 @@
-﻿using Infrastructure.DataAccess;
+﻿using Core.Domain.Helpers.Mappers;
+using Infrastructure.DataAccess;
 using Infrastructure.DataAccess.DTO;
 using System;
 using System.Collections.Generic;
@@ -8,22 +9,16 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Services
 {
-    public class LoginService()
+    public class LoginService
     {
-        //2 methodes: TryLoginCustomer, TryLoginEmployee met checkbox controleren in de UI?
-        //In een mapper beslissen of CustomerDTO of EmployeeDTO adhv bool property in LoginModel?
-        public bool TryLogin(Login login)
+        public bool TryLogin(Login login) 
         {
-            CustomerDTO customer = new CustomerDTO();
-            customer.Email = login.Email;
-            customer.Password = login.Password;
-
-            CustomerRepository customerRepository = new CustomerRepository();
-            if (customerRepository.TryLogin(customer) == true)
+            LoginRepository loginRepository = new LoginRepository();
+            if (loginRepository.TryLogin(login.Map()) == true)
             {
-                return true; //Het volledige customer object teruggeven of niet nodig?
+                return true;
             }
-            return false;
+            return false; //Login failed
         }
 
     }

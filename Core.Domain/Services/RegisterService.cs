@@ -1,4 +1,5 @@
-﻿using Infrastructure.DataAccess;
+﻿using Core.Domain.Helpers.Mappers;
+using Infrastructure.DataAccess;
 using Infrastructure.DataAccess.DTO;
 using System;
 using System.Collections.Generic;
@@ -12,35 +13,27 @@ namespace Core.Domain.Services
     {
         public bool CheckDuplicateEmail(string email)
         {
-            CustomerDTO customer = new CustomerDTO();
-            customer.Email = email;
             CustomerRepository customerRepository = new CustomerRepository();
-            if (customerRepository.CheckDuplicateEmail(customer) == true)
+            if (customerRepository.CheckDuplicateEmail(email) == true)
             {
-                //if true, then there is allready this email adress, throw exeption?
-                return true;
+                return true;//Email allready exists
             }
             else
             {
-                return false;
+                return false;//Email does not exist
             }
         }
 
         public bool TryRegister(Customer newCustomer)
         {
             CustomerRepository customerRepository = new CustomerRepository();
-            if (customerRepository.TryRegister(new CustomerDTO()
+            if (customerRepository.TryRegister(newCustomer.Map()) == true)
             {
-                Email = newCustomer.Email,
-                FirstName = newCustomer.FirstName,
-                LastName = newCustomer.LastName,
-                Password = newCustomer.Password }) == true) //Stil the IF statement
-            { 
                 return true; //If succesfull
             }
             else
             {
-                return false;//Else if not succesfull (Still needed, because all the checks should have been done at this point
+                return false;//Else if not succesfull
             }
         }
     }
