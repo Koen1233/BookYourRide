@@ -25,28 +25,25 @@
 
     <form method="post">
         <div class="form-group">
-            <label asp-for="Login.Email" class="control-label"> </label>
-            <input asp-for="Login.Email" class="form-control" />
-            <span asp-validation-for="Login.Email" class="text-danger"></span>
+            <label asp-for="LoginModel.Email" class="control-label"> </label>
+            <input asp-for="LoginModel.Email" class="form-control" />
+            <span asp-validation-for="LoginModel.Email" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Login.Password" class="control-label"> </label>
-            <input asp-for="Login.Password" type="password" class="form-control" />
-            <span asp-validation-for="Login.Password" class="text-danger"></span> <br><br />
+            <label asp-for="LoginModel.Password" class="control-label"> </label>
+            <input asp-for="LoginModel.Password" type="password" class="form-control" />
+            <span asp-validation-for="LoginModel.Password" class="text-danger"></span> <br><br />
         </div>
 
 
         <input type="submit" class="btn btn-primary" value="Login">
         @*onderstaande is AI, waarom niet op de bovenstaande manier op te schrijven?*@
         <a class="btn btn-danger" asp-page="/Index">Cancel</a>
-        
-
-        @* <a class="btn btn-secondary" asp-page="/Authentication/Register">Register</a> *@
     </form>
 
 </div>
 
-@* @section Scripts {
+@section Scripts {
     <partial name="_ValidationScriptsPartial" />
-} *@
+}

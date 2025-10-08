@@ -11,38 +11,37 @@ namespace BYR_WebApp.Pages.Authentication
     public class RegisterModel : PageModel
     {
         [BindProperty]
-        public CustomerModel Customer { get; set; } = new();
+        public CustomerModel CustomerModel { get; set; } = new();
 
         public void OnGet()
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
+           
+            //Check if passwords match
+            if (CustomerModel.Password != CustomerModel.ConfirmPassword)
+            {
+                ModelState.AddModelError(string.Empty, "Passwords do not match");
+            }
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
-            //Check if passwords match
-            if (Customer.Password != Customer.ConfirmPassword)
-            {
-                //Text to show emails do not match
-                return;
-            }
-
             RegisterService service = new RegisterService();
-            if (service.CheckDuplicateEmail(Customer.Email) == true)
+            if (service.CheckDuplicateEmail(CustomerModel.Email) == true)
             {
-                //Show error message for duplicate emails
-                return;
+                ModelState.AddModelError(string.Empty, "Email is already in use");
+                return Page();
             }
-            else
-            {
-                service.TryRegister(Customer.Map());//Map gebruikt het CustomerModel en geeft Customer terug coor de Domain laag
-                
-                //Redirect to login page
-                Response.Redirect("/Authentication/TryLogin");
-            }
+           
+
+            service.TryRegister(CustomerModel.Map());//Map gebruikt het CustomerModel en geeft Customer terug voor de Domain laag
+
+            //Redirect to login page
+            //Response.Redirect("/Authentication/TryLogin");
+            return Redirect("/Authentication/TryLogin");
         }
     }
 }

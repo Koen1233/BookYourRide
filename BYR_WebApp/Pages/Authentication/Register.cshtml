@@ -15,31 +15,33 @@
 
 <form method="post">
 
+    <div asp-validation-summary="All" class="text-danger"></div>
+
     <div class="form-group">
-        <label asp-for="Customer.FirstName" class="control-label"></label>
-        <input asp-for="Customer.FirstName" class="form-control" />
-        <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+            <label asp-for="CustomerModel.FirstName" class="control-label"></label>
+            <input asp-for="CustomerModel.FirstName" class="form-control" />
+            <span asp-validation-for="CustomerModel.FirstName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Customer.LastName" class="control-label"></label>
-        <input asp-for="Customer.LastName" class="form-control" />
-        <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+            <label asp-for="CustomerModel.LastName" class="control-label"></label>
+            <input asp-for="CustomerModel.LastName" class="form-control" />
+            <span asp-validation-for="CustomerModel.LastName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Customer.Email" class="control-label"></label>
-        <input asp-for="Customer.Email" class="form-control" />
-        <span asp-validation-for="Customer.Email" class="text-danger"></span>
+            <label asp-for="CustomerModel.Email" class="control-label"></label>
+            <input asp-for="CustomerModel.Email" class="form-control" />
+            <span asp-validation-for="CustomerModel.Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Customer.Password" class="control-label"></label>
-        <input asp-for="Customer.Password" type="password" class="form-control" />
-        <span asp-validation-for="Customer.Password" class="text-danger"></span>
+            <label asp-for="CustomerModel.Password" class="control-label"></label>
+            <input asp-for="CustomerModel.Password" type="password" class="form-control" />
+            <span asp-validation-for="CustomerModel.Password" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Customer.ConfirmPassword" class="control-label"></label>
-        <input asp-for="Customer.ConfirmPassword" type="password" class="form-control" />
-        <span asp-validation-for="Customer.ConfirmPassword" class="text-danger"></span>
+            <label asp-for="CustomerModel.ConfirmPassword" class="control-label"></label>
+            <input asp-for="CustomerModel.ConfirmPassword" type="password" class="form-control" />
+            <span asp-validation-for="CustomerModel.ConfirmPassword" class="text-danger"></span>
     </div>
     @*Toevoegen 2e veld voor email ter validatie, hoe elkaar controleren?*@
     
@@ -48,5 +50,10 @@
     <input type="submit" class="btn btn-primary" value="Register">
 
     <a class="btn btn-danger" asp-page="/Index">Cancel</a>
+
 </form>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

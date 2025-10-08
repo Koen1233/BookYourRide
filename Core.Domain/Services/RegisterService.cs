@@ -40,7 +40,7 @@ namespace Core.Domain.Services
             }
             else
             {
-                return false;//Else i not succesfull (Still needed, because all the checks should have been done at this point
+                return false;//Else if not succesfull (Still needed, because all the checks should have been done at this point
             }
         }
     }

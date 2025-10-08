@@ -31,22 +31,22 @@ namespace Core.Domain
         {
             Name = name;
 
-            EmployeeRepository employeeRepository = new EmployeeRepository();
-            List<EmployeeDTO> employeeData = employeeRepository.GetEmployees();
-            foreach (EmployeeDTO employeeDTO in employeeData)
-            {
-                List<Ride> rides = new List<Ride>(); //tijdelijk opslaan rides en meegeven in constructor van employee
+            //EmployeeRepository employeeRepository = new EmployeeRepository();
+            //List<EmployeeDTO> employeeData = employeeRepository.GetEmployees();
+            //foreach (EmployeeDTO employeeDTO in employeeData)
+            //{
+            //    List<Ride> rides = new List<Ride>(); //tijdelijk opslaan rides en meegeven in constructor van employee
 
-                for (int i = 0; i < employeeDTO.Rides.Count; i++)
-                {
-                    Cargo cargo = new Cargo(employeeDTO.Rides[i].CargoDTO.Length, employeeDTO.Rides[i].CargoDTO.Width, employeeDTO.Rides[i].CargoDTO.Height, employeeDTO.Rides[i].CargoDTO.Weight);
-                    Vehicle vehicle = new Vehicle(employeeDTO.Rides[i].VehicleDTO.Mileage, employeeDTO.Rides[i].VehicleDTO.WriteOff, employeeDTO.Rides[i].VehicleDTO.MaxLoad, employeeDTO.Rides[i].VehicleDTO.PassengerSeats, employeeDTO.Rides[i].VehicleDTO.Status, VehicleType.Taxi); //rideDTO.VehicleDTO.VehicleType)
-                    Ride ride = new Ride(employeeDTO.Rides[i].Price, employeeDTO.Rides[i].Beginning, employeeDTO.Rides[i].End, employeeDTO.Rides[i].Distance, employeeDTO.Rides[i].Date, vehicle, cargo);
-                    rides.Add(ride);
-                }
-                Employee employee = new Employee(employeeDTO.Email, employeeDTO.FirstName, employeeDTO.LastName, employeeDTO.Password, employeeDTO.Status, rides);
-                _employees.Add(employee);
-            }
+            //    for (int i = 0; i < employeeDTO.Rides.Count; i++)
+            //    {
+            //        Cargo cargo = new Cargo(employeeDTO.Rides[i].CargoDTO.Length, employeeDTO.Rides[i].CargoDTO.Width, employeeDTO.Rides[i].CargoDTO.Height, employeeDTO.Rides[i].CargoDTO.Weight);
+            //        Vehicle vehicle = new Vehicle(employeeDTO.Rides[i].VehicleDTO.Mileage, employeeDTO.Rides[i].VehicleDTO.WriteOff, employeeDTO.Rides[i].VehicleDTO.MaxLoad, employeeDTO.Rides[i].VehicleDTO.PassengerSeats, employeeDTO.Rides[i].VehicleDTO.Status, VehicleType.Taxi); //rideDTO.VehicleDTO.VehicleType)
+            //        Ride ride = new Ride(employeeDTO.Rides[i].Price, employeeDTO.Rides[i].Beginning, employeeDTO.Rides[i].End, employeeDTO.Rides[i].Distance, employeeDTO.Rides[i].Date, vehicle, cargo);
+            //        rides.Add(ride);
+            //    }
+            //    Employee employee = new Employee(employeeDTO.Email, employeeDTO.FirstName, employeeDTO.LastName, employeeDTO.Password, employeeDTO.Status, rides);
+            //    _employees.Add(employee);
+            //}
         }
 
         //Operations

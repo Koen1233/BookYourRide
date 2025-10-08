@@ -10,13 +10,13 @@ namespace Core.Domain.Services
 {
     public class LoginService()
     {
-       
         //2 methodes: TryLoginCustomer, TryLoginEmployee met checkbox controleren in de UI?
-        public bool TryLogin(string email, string password)//string email, string password? of het in de customer/ employee?
+        //In een mapper beslissen of CustomerDTO of EmployeeDTO adhv bool property in LoginModel?
+        public bool TryLogin(Login login)
         {
             CustomerDTO customer = new CustomerDTO();
-            customer.Email = email; 
-            customer.Password = password;
+            customer.Email = login.Email;
+            customer.Password = login.Password;
 
             CustomerRepository customerRepository = new CustomerRepository();
             if (customerRepository.TryLogin(customer) == true)
