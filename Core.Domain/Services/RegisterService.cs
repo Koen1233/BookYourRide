@@ -1,4 +1,5 @@
 ﻿using Core.Domain.Helpers.Mappers;
+using Core.Domain.Results;
 using Infrastructure.DataAccess;
 using Infrastructure.DataAccess.DTO;
 using System;
@@ -11,16 +12,34 @@ namespace Core.Domain.Services
 {
     public class RegisterService
     {
-        public void CheckDuplicateEmail(string email)
+        public RegisterResult CheckDuplicateEmail(string email)
         {
             RegisterRepository registerRepository = new RegisterRepository();
-            registerRepository.CheckDuplicateEmail(email);
+            string errorMessage = registerRepository.CheckDuplicateEmail(email);
+            if (errorMessage == "")
+            {
+                return new RegisterResult();
+            }
+            else
+            {
+                return new RegisterResult(errorMessage);
+            }
         }
 
-        public void TryRegister(Register register)
+        
+        public RegisterResult TryRegister(Register register)
         {
             RegisterRepository registerRepository = new RegisterRepository();
-            registerRepository.TryRegister(register.Map());
+            string errorMessage = registerRepository.TryRegister(register.Map());
+            if (errorMessage == "")
+            {
+                return new RegisterResult();
+            }
+            else
+            {
+                return new RegisterResult(errorMessage); //tenzij de connectie fout gaat, kan er niks anders fout gaan..
+            }
         }
+
     }
 }

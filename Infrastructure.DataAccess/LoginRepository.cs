@@ -10,7 +10,7 @@ namespace Infrastructure.DataAccess
 {
     public class LoginRepository
     {
-        public void TryLogin(LoginDTO loginDTO)
+        public string TryLogin(LoginDTO loginDTO)
         {
             if (loginDTO.IsEmployee == true)
             {
@@ -22,14 +22,19 @@ namespace Infrastructure.DataAccess
                 MySqlDataReader mysqlDataReader = mysqlCommand.ExecuteReader();
                 while (mysqlDataReader.Read())
                 {
-                    if (mysqlDataReader.GetString("email") == loginDTO.Email && mysqlDataReader.GetString("password") == loginDTO.Password)
+                    if (mysqlDataReader.GetString("email") == loginDTO.Email)
                     {
+                        if(mysqlDataReader.GetString("password") != loginDTO.Password)
+                        {
+                            mysqlConnection.Close();
+                            return "Password is incorrect";
+                        }
                         mysqlConnection.Close();
-                        return;
+                        return string.Empty;//Login successfull
                     }
                 }
                 mysqlConnection.Close();
-                throw new ArgumentException("Email or Password is incorrect.");
+                return "An employee account with this email does not exist";
             }
             else //Customer login
             {
@@ -46,13 +51,14 @@ namespace Infrastructure.DataAccess
                         if (mysqlDataReader.GetString("password") != loginDTO.Password)
                         {
                             mysqlConnection.Close();
-                            throw new ArgumentException("Password is incorrect.");
+                            return "Password is incorrect";
                         }
-                        return;//Login successful
+                        mysqlConnection.Close();
+                        return string.Empty;//Login successfull
                     }
                 }
                 mysqlConnection.Close();
-                throw new ArgumentException("There is no account with this email, try registering first!");
+                return "There is no account with this email, try registering first!";
             }
         }
     }

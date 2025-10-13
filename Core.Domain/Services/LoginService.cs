@@ -1,4 +1,5 @@
 ﻿using Core.Domain.Helpers.Mappers;
+using Core.Domain.Results;
 using Infrastructure.DataAccess;
 using Infrastructure.DataAccess.DTO;
 using System;
@@ -11,10 +12,19 @@ namespace Core.Domain.Services
 {
     public class LoginService
     {
-        public void TryLogin(Login login) 
+        public LoginResult TryLogin(Login login) 
         {
             LoginRepository loginRepository = new LoginRepository();
-            loginRepository.TryLogin(login.Map());
+            string errorMessage = loginRepository.TryLogin(login.Map());
+
+            if (errorMessage == "")
+            {
+                return new LoginResult();
+            }
+            else
+            {
+                return new LoginResult(errorMessage);
+            }
         }
     }
 }

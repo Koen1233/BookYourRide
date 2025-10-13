@@ -10,7 +10,7 @@ namespace Infrastructure.DataAccess
 {
     public class RegisterRepository
     {
-        public void CheckDuplicateEmail(string email)
+        public string CheckDuplicateEmail(string email)
         {
             //MySqlConnection mysqlConnection = new MySqlConnection("Data Source=.;Initial Catalog=bookyourride;Persist Security Info=True;User ID=KoenV;Password=DBhost013!?");
             MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?; database=bookyourride");
@@ -24,15 +24,17 @@ namespace Infrastructure.DataAccess
             {
                 if (mysqlDataReader.GetString("email") == email)
                 {
-                    throw new ArgumentException("This email allready has an account,continue to the Login page");
+                    mysqlConnection.Close();
+                    return "This email allready has an account, continue to the Login page";
                 }
             }
+            return string.Empty;
         }
 
 
 
 
-        public bool TryRegister(RegisterDTO registerDTO)
+        public string TryRegister(RegisterDTO registerDTO)
         {
             MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?; database=bookyourride");
             mysqlConnection.Open();
@@ -47,7 +49,7 @@ namespace Infrastructure.DataAccess
 
 
             mysqlConnection.Close();
-            return true;
+            return string.Empty;
         }
     }
 }

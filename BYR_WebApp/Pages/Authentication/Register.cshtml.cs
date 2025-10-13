@@ -3,6 +3,7 @@ using BYR_WebApp.Helpers.Mappers;
 using BYR_WebApp.Models;
 using Core.Domain;
 using Core.Domain.Services;
+using Core.Domain.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq.Expressions;
@@ -27,19 +28,29 @@ namespace BYR_WebApp.Pages.Authentication
             if (CustomerModel.Password != CustomerModel.ConfirmPassword)
             {
                 ModelState.AddModelError(string.Empty, "Passwords do not match");
+                return Page();
             }
 
             RegisterService service = new RegisterService();
-            try
+
+            RegisterResult emailResult = service.CheckDuplicateEmail(CustomerModel.Email);
+            if (emailResult.Success == false)
             {
-                service.CheckDuplicateEmail(CustomerModel.Email);
-                service.TryRegister(CustomerModel.Map()); //.Map gebruikt het CustomerModel en geeft een Core domain Customer terug 
-                return Redirect("/Authentication/TryLogin");
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, ex.Message);
+                ModelState.AddModelError(string.Empty, emailResult.ErrorMessage);
                 return Page();
+            }
+            else
+            {
+                RegisterResult registerResult = service.TryRegister(CustomerModel.Map()); //.Map gebruikt het CustomerModel en geeft een Core domain Customer terug 
+                if (registerResult.Success == false)
+                {
+                    ModelState.AddModelError(string.Empty, registerResult.ErrorMessage);
+                    return Page();
+                }
+                else
+                {
+                    return Redirect("/Authentication/TryLogin");
+                }
             }
         }
     }

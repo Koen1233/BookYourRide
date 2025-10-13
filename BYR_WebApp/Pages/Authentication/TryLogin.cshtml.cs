@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Core.Domain.Services;
+using Core.Domain.Results;
 using BYR_WebApp.Models;
 using BYR_WebApp.Helpers.Mappers;
 
@@ -25,17 +26,18 @@ namespace BYR_WebApp.Pages.Authentication
 
             LoginService loginService = new LoginService();
 
-            try
+            LoginResult loginResult = loginService.TryLogin(LoginModel.Map());
+            if (loginResult.Success == true)
             {
-                loginService.TryLogin(LoginModel.Map());
-                return Redirect("/Ride/Actions"); 
-                //Employee naar een andere pagina redirecten, en obv cookies bepalen wat er te zien is?
+                return Redirect("/Ride/Actions");
+                //Employee naar een andere pagina redirecten?
+                //Cookies toewijzen voor ingelogde gebruiker
             }
-            catch (Exception ex)
+            else
             {
-                ModelState.AddModelError(string.Empty, ex.Message);
+                ModelState.AddModelError(string.Empty, loginResult.ErrorMessage);
                 return Page();
-            } 
+            }
         }
     }
 }
