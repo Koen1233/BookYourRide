@@ -22,18 +22,20 @@ namespace BYR_WebApp.Pages.Authentication
             {
                 return Page();
             }
-            LoginService service = new LoginService();
-            if(service.TryLogin(LoginModel.Map()) == true)
+
+            LoginService loginService = new LoginService();
+
+            try
             {
-                //Employee naar een andere pagina redirecten, of obv cookies bepalen wat er te zien is?
-                return Redirect("/Ride/Actions");
+                loginService.TryLogin(LoginModel.Map());
+                return Redirect("/Ride/Actions"); 
+                //Employee naar een andere pagina redirecten, en obv cookies bepalen wat er te zien is?
             }
-            else //if login failed
+            catch (Exception ex)
             {
-                ModelState.AddModelError(string.Empty, "Email or Password is incorrect.");
+                ModelState.AddModelError(string.Empty, ex.Message);
                 return Page();
-            }
-            
+            } 
         }
     }
 }

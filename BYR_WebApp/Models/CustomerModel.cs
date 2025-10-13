@@ -28,7 +28,6 @@ namespace BYR_WebApp.Models
         [Display(Name = "Password: ")]
         public string Password { get; set; } = string.Empty;
 
-
         //handig om in het model te zetten of ergens anders controleren?
         [Required(ErrorMessage = "Please confirm your Password")]
         [StringLength(maximumLength: 45, MinimumLength = 1)]

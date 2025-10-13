@@ -10,7 +10,7 @@ namespace Infrastructure.DataAccess
 {
     public class LoginRepository
     {
-        public bool TryLogin(LoginDTO loginDTO)
+        public void TryLogin(LoginDTO loginDTO)
         {
             if (loginDTO.IsEmployee == true)
             {
@@ -25,11 +25,11 @@ namespace Infrastructure.DataAccess
                     if (mysqlDataReader.GetString("email") == loginDTO.Email && mysqlDataReader.GetString("password") == loginDTO.Password)
                     {
                         mysqlConnection.Close();
-                        return true;
+                        return;
                     }
                 }
                 mysqlConnection.Close();
-                return false; //login failed
+                throw new ArgumentException("Email or Password is incorrect.");
             }
             else //Customer login
             {
@@ -41,15 +41,18 @@ namespace Infrastructure.DataAccess
                 MySqlDataReader mysqlDataReader = mysqlCommand.ExecuteReader();
                 while (mysqlDataReader.Read())
                 {
-                    if (mysqlDataReader.GetString("email") == loginDTO.Email &&
-                        mysqlDataReader.GetString("password") == loginDTO.Password)
+                    if (mysqlDataReader.GetString("email") == loginDTO.Email)
                     {
-                        mysqlConnection.Close();
-                        return true;//Login succesfull
+                        if (mysqlDataReader.GetString("password") != loginDTO.Password)
+                        {
+                            mysqlConnection.Close();
+                            throw new ArgumentException("Password is incorrect.");
+                        }
+                        return;//Login successful
                     }
                 }
                 mysqlConnection.Close();
-                return false; //Login failed
+                throw new ArgumentException("There is no account with this email, try registering first!");
             }
         }
     }

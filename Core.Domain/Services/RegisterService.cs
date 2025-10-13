@@ -11,30 +11,16 @@ namespace Core.Domain.Services
 {
     public class RegisterService
     {
-        public bool CheckDuplicateEmail(string email)
+        public void CheckDuplicateEmail(string email)
         {
-            CustomerRepository customerRepository = new CustomerRepository();
-            if (customerRepository.CheckDuplicateEmail(email) == true)
-            {
-                return true;//Email allready exists
-            }
-            else
-            {
-                return false;//Email does not exist
-            }
+            RegisterRepository registerRepository = new RegisterRepository();
+            registerRepository.CheckDuplicateEmail(email);
         }
 
-        public bool TryRegister(Customer newCustomer)
+        public void TryRegister(Register register)
         {
-            CustomerRepository customerRepository = new CustomerRepository();
-            if (customerRepository.TryRegister(newCustomer.Map()) == true)
-            {
-                return true; //If succesfull
-            }
-            else
-            {
-                return false;//Else if not succesfull
-            }
+            RegisterRepository registerRepository = new RegisterRepository();
+            registerRepository.TryRegister(register.Map());
         }
     }
 }

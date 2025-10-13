@@ -11,15 +11,10 @@ namespace Core.Domain.Services
 {
     public class LoginService
     {
-        public bool TryLogin(Login login) 
+        public void TryLogin(Login login) 
         {
             LoginRepository loginRepository = new LoginRepository();
-            if (loginRepository.TryLogin(login.Map()) == true)
-            {
-                return true;
-            }
-            return false; //Login failed
+            loginRepository.TryLogin(login.Map());
         }
-
     }
 }

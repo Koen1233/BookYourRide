@@ -9,10 +9,11 @@ namespace Core.Domain
 {
     public class Employee
     {
+        //public Login loginCredentials {  get; private set; } //op deze manier de Login klasse verwerken en email, password eruit halen?
         public string Email { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public string Password { get; private set; } //of alles private, een wachtwoord niet zomaar ophalen?
+        public string Password { get; private set; }
         public bool Status { get; private set; }
 
         private List<Ride> _rides = new();
@@ -39,7 +40,7 @@ namespace Core.Domain
 
         }
 
-        //SRP Changestatus of splitsten in onderstaande?
+        //SRP Changestatus splitsten in onderstaande?
 
         internal static void ChangeEmployeeStatus(Employee employee, bool status)
         {
@@ -49,14 +50,5 @@ namespace Core.Domain
         {
 
         }
-
-
-
-        public void HardCodeRide(Ride ride)
-        {
-            _rides.Add(ride);
-        }
-
-
     }
 }

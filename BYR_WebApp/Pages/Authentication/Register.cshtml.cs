@@ -5,6 +5,7 @@ using Core.Domain;
 using Core.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq.Expressions;
 
 namespace BYR_WebApp.Pages.Authentication
 {
@@ -19,24 +20,27 @@ namespace BYR_WebApp.Pages.Authentication
 
         public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)//kan het model ooit invalid zijn icm client side validatie in het model?
+            {
+                return Page();
+            }
             if (CustomerModel.Password != CustomerModel.ConfirmPassword)
             {
                 ModelState.AddModelError(string.Empty, "Passwords do not match");
             }
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            RegisterService service = new RegisterService();
-            if (service.CheckDuplicateEmail(CustomerModel.Email) == true)
-            {
-                ModelState.AddModelError(string.Empty, "Email is already in use");
-                return Page();
-            }
-           
 
-            service.TryRegister(CustomerModel.Map());//Map gebruikt het CustomerModel en geeft Customer terug voor de Domain laag
-            return Redirect("/Authentication/TryLogin");
+            RegisterService service = new RegisterService();
+            try
+            {
+                service.CheckDuplicateEmail(CustomerModel.Email);
+                service.TryRegister(CustomerModel.Map()); //.Map gebruikt het CustomerModel en geeft een Core domain Customer terug 
+                return Redirect("/Authentication/TryLogin");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
         }
     }
 }

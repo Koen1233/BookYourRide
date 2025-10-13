@@ -65,7 +65,7 @@ namespace BYR_WindowsForms
         //buttons
         private void buttonBookaRide_Click(object sender, EventArgs e)
         {
-            CurrentCustomer.BookRide(Center);
+            //CurrentCustomer.BookRide(Center);
         }
 
         private void buttonCancelRide_Click(object sender, EventArgs e)
