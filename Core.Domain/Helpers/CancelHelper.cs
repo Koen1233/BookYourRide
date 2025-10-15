@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Helper
 {
-    internal class CancelHelper
+    public class CancelHelper
     {
-        internal static void CancelRide()
+        public static void CancelRide()
         {
+            //Kan de static methode op de klasse CanCelHelper aanroepen
+            //Cancel Ride is dan ook het enige wat deze klasse zal doen
+        }
 
+        public static void Refund()
+        {
+            //Kan de static methode op de klasse CanCelHelper aanroepen
+            //Refund is dan ook het enige wat deze klasse zal doen
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Core.Domain.Services
 {
     public class RegisterService
     {
-        public RegisterResult CheckDuplicateEmail(string email)
+        public static RegisterResult CheckDuplicateEmail(string email)
         {
             RegisterRepository registerRepository = new RegisterRepository();
             string errorMessage = registerRepository.CheckDuplicateEmail(email);
@@ -24,10 +24,11 @@ namespace Core.Domain.Services
             {
                 return new RegisterResult(errorMessage);
             }
+            //Duplicate email geeft maar 1 fout terug, namelijk dat de email al bestaat. Gebruik van RegisterResult nodig?
         }
 
         
-        public RegisterResult TryRegister(Register register)
+        public static RegisterResult TryRegister(Register register)
         {
             RegisterRepository registerRepository = new RegisterRepository();
             string errorMessage = registerRepository.TryRegister(register.Map());
@@ -37,7 +38,7 @@ namespace Core.Domain.Services
             }
             else
             {
-                return new RegisterResult(errorMessage); //tenzij de connectie fout gaat, kan er niks anders fout gaan..
+                return new RegisterResult(errorMessage); //altijd goed, tenzij de connectie/implementatie in database fout gaat?
             }
         }
 

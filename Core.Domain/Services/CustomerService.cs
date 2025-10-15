@@ -8,10 +8,11 @@ namespace Core.Domain.Services
 {
     public class CustomerService
     {
-        //public List<Ride> GetRides()
-        //{
-        //    //voor ophalen van alle ritten voor een klant
-        //    return new List<Ride>();
-        //}
+        //ohphalen alle ritten van de customer uit de database
+        public List<Ride> GetRides()
+        {
+            return new List<Ride>();
+        }
+
     }
 }

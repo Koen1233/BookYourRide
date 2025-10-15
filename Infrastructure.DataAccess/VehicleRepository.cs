@@ -15,5 +15,6 @@ namespace Infrastructure.DataAccess
 
             return vehicles;
         }
+        //Vehicles ophalen, ENUM Vehiclytype als int en later vertalen naar de juiste ENUM
     }
 }

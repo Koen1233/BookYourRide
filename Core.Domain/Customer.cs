@@ -9,23 +9,20 @@ namespace Core.Domain
 {
     public class Customer
     {
-        //public Login loginCredentials {  get; private set; } //op deze manier de Login klasse verwerken en email, password eruit halen?
-        public string Email { get; private set; }
+        public Login loginCredentials {  get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public string Password { get; private set; }
 
         private List<Ride> _rides = new();
 
         public IReadOnlyList<Ride> Rides { get { return _rides; } }
 
 
-        public Customer(string email, string firstName, string lastName, string password, List<Ride> rides) 
+        public Customer(Login loginCreds, string firstName, string lastName, List<Ride> rides) 
         {
-            Email = email;
+            loginCredentials = loginCreds;
             FirstName = firstName;
             LastName = lastName;
-            Password = password;
             foreach (Ride ride in rides)
             {
                 _rides.Add(ride);

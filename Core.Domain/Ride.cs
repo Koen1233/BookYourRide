@@ -29,9 +29,11 @@ namespace Core.Domain
             Cargo = cargo;
         }
 
-        public override string ToString()
-        {
-            return $"{Date} - {Beginning} to {End}";
-        }
+
+
+        //public override string ToString()
+        //{
+        //    return $"{Date} - {Beginning} to {End}";
+        //}
     }
 }

@@ -11,4 +11,5 @@ namespace Infrastructure.DataAccess.DTO
         Taxi = 1,
         Truck = 2
     }
+    //op moment nog niet in gebruik ivm integer gebruik in database
 }

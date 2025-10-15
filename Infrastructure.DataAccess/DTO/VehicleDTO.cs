@@ -13,7 +13,14 @@ namespace Infrastructure.DataAccess.DTO
         public int MaxLoad { get;  set; }
         public int PassengerSeats { get;  set; }
         public bool Status { get;  set; }
-        public VehicleTypeDTO VehicleTypeDTO { get; set; }
+
+        /// <summary>
+        /// 1 = Taxi,
+        /// 2 = Truck
+        /// </summary>
+        public int VehicleType { get; set; }
+        //eigenlijk als Enum ophalen, maar dat lukt nog niet dus dan maar als INT, en in de domein in een ENUM veranderen.
+        //public VehicleTypeDTO VehicleTypeDTO { get; set; }
 
     }
 }

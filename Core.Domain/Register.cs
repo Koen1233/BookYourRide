@@ -21,6 +21,5 @@ namespace Core.Domain
             LastName = lastName;
             Password = password;
         }
-
     }
 }

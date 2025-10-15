@@ -13,16 +13,16 @@ namespace Infrastructure.DataAccess
 {
     public class EmployeeRepository
     {
-        
+
 
         //public List<EmployeeDTO> GetEmployees()
         //{
         //    List<EmployeeDTO> employees = new List<EmployeeDTO>();
-            
+
         //    //MySqlConnection mysqlConnection = new MySqlConnection("Data Source=.;Initial Catalog=bookyourride;Persist Security Info=True;User ID=KoenV;Password=DBhost013!?");
         //    MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?; database=bookyourride");
         //    mysqlConnection.Open();
-            
+
         //    //Nieuwe SQL command uitvoeren naar de database
         //    MySqlCommand mysqlCommand = new MySqlCommand(
         //        "Select * " +
@@ -55,6 +55,7 @@ namespace Infrastructure.DataAccess
         //                MaxLoad = mysqlDataReader.GetInt32("maxLoad"),
         //                Status = mysqlDataReader.GetBoolean("vehicleStatus"),
         //                //VehicleTypeDTO = mysqlDataReader.GetEnumerator("vehicleType")
+        //                //Andere oplossig, namelijk ophalen als int en niet als ENUM??
         //            };
 
         //            RideDTO ride = new RideDTO(vehicle, cargo)
@@ -88,8 +89,10 @@ namespace Infrastructure.DataAccess
         //                Mileage = mysqlDataReader.GetInt32("mileage"),
         //                WriteOff = mysqlDataReader.GetInt32("writeOff"),
         //                MaxLoad = mysqlDataReader.GetInt32("maxLoad"),
+        //                PassengerSeats = mysqlDataReader.GetInt32("passengerSeats"),
         //                Status = mysqlDataReader.GetBoolean("vehicleStatus"),
-        //                //VehicleTypeDTO = mysqlDataReader("vehicleType")
+        //                VehicleType = mysqlDataReader.GetInt32("vehicleType"),
+        //                //VehicleTypeDTO 
         //            };
 
         //            RideDTO ride = new RideDTO(vehicle, cargo)
@@ -108,7 +111,7 @@ namespace Infrastructure.DataAccess
         //                LastName = mysqlDataReader.GetString("lastname"),
         //                Password = mysqlDataReader.GetString("password"),
         //                Status = mysqlDataReader.GetBoolean("employeeStatus"),
-                        
+
         //            };
         //            employee.Rides.Add(ride);
         //            employees.Add(employee);

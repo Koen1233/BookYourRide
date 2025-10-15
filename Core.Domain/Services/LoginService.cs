@@ -12,7 +12,7 @@ namespace Core.Domain.Services
 {
     public class LoginService
     {
-        public LoginResult TryLogin(Login login) 
+        public static LoginResult TryLogin(Login login) 
         {
             LoginRepository loginRepository = new LoginRepository();
             string errorMessage = loginRepository.TryLogin(login.Map());

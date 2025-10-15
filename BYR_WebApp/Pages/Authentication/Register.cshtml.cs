@@ -31,9 +31,7 @@ namespace BYR_WebApp.Pages.Authentication
                 return Page();
             }
 
-            RegisterService service = new RegisterService();
-
-            RegisterResult emailResult = service.CheckDuplicateEmail(CustomerModel.Email);
+            RegisterResult emailResult = RegisterService.CheckDuplicateEmail(CustomerModel.Email);
             if (emailResult.Success == false)
             {
                 ModelState.AddModelError(string.Empty, emailResult.ErrorMessage);
@@ -41,7 +39,7 @@ namespace BYR_WebApp.Pages.Authentication
             }
             else
             {
-                RegisterResult registerResult = service.TryRegister(CustomerModel.Map()); //.Map gebruikt het CustomerModel en geeft een Core domain Customer terug 
+                RegisterResult registerResult = RegisterService.TryRegister(CustomerModel.Map()); //.Map gebruikt het CustomerModel en geeft een Core domain Customer terug 
                 if (registerResult.Success == false)
                 {
                     ModelState.AddModelError(string.Empty, registerResult.ErrorMessage);

@@ -24,9 +24,7 @@ namespace BYR_WebApp.Pages.Authentication
                 return Page();
             }
 
-            LoginService loginService = new LoginService();
-
-            LoginResult loginResult = loginService.TryLogin(LoginModel.Map());
+            LoginResult loginResult = LoginService.TryLogin(LoginModel.Map());
             if (loginResult.Success == true)
             {
                 return Redirect("/Ride/Actions");

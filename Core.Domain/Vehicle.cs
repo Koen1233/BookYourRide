@@ -17,11 +17,11 @@ namespace Core.Domain
 
 
 
-        public Vehicle(int mileage, int writeOff, int Maxload, int passengerSeats, bool status, VehicleType vehicleType)
+        public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, VehicleType vehicleType)
         {
             Mileage = mileage;
             WriteOff = writeOff;
-            MaxLoad = Maxload;
+            MaxLoad = maxload;
             PassengerSeats = passengerSeats;
             Status = status;
             VehicleType = vehicleType;

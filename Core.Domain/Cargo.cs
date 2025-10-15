@@ -14,7 +14,10 @@ namespace Core.Domain
         public int Height { get; private set; }
         public int Weight { get; private set; }
 
-        //Or PersonTransport
+        /// <summary>
+        /// PersonTransport
+        /// </summary>
+        /// <param name="people"></param>
         public Cargo(int people)
         {
             People = people;
@@ -24,7 +27,14 @@ namespace Core.Domain
             Weight = 0;
         }
 
-        //Or CargoTransport
+        
+        /// <summary>
+        /// CargoTransport
+        /// </summary>
+        /// <param name="length"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="weight"></param>
         public Cargo(int length, int width, int height, int weight)
         {
             People = 0;

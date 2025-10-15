@@ -9,6 +9,7 @@ namespace Core.Domain.Helpers.Mappers
 {
     internal static class LoginMapper
     {
+        //Map to DTO object
         internal static LoginDTO Map(this Login login)
         {
             return new LoginDTO
