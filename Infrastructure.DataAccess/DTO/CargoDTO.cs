@@ -8,22 +8,11 @@ namespace Infrastructure.DataAccess.DTO
 {
     public class CargoDTO
     {
-        public int People { get; set; } 
-        public int Length { get; set; } 
-        public int Width { get; set; } 
-        public int Height { get; set; }
-        public int Weight { get; set; }
-
-        //public CargoDTO(int people)
-        //{
-        //    People = people;
-        //}
-        //public CargoDTO(int length, int width, int height, int weight)
-        //{
-        //    Length = length;
-        //    Width = width;
-        //    Height = height;
-        //    Weight = weight;
-        //}
+        // =0; to set non used properties to 0
+        public int People { get; set; } = 0;
+        public int Length { get; set; } = 0;
+        public int Width { get; set; } = 0;
+        public int Height { get; set; } = 0;
+        public int Weight { get; set; } = 0;
     }
 }

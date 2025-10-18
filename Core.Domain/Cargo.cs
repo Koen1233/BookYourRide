@@ -14,30 +14,9 @@ namespace Core.Domain
         public int Height { get; private set; }
         public int Weight { get; private set; }
 
-        /// <summary>
-        /// PersonTransport
-        /// </summary>
-        /// <param name="people"></param>
-        public Cargo(int people)
+        public Cargo(int people, int length, int width, int height, int weight)
         {
             People = people;
-            Length = 0;
-            Width = 0;
-            Height = 0;
-            Weight = 0;
-        }
-
-        
-        /// <summary>
-        /// CargoTransport
-        /// </summary>
-        /// <param name="length"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="weight"></param>
-        public Cargo(int length, int width, int height, int weight)
-        {
-            People = 0;
             Length = length;
             Width = width;
             Height = height;

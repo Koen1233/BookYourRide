@@ -13,18 +13,36 @@ namespace Core.Domain
         public int MaxLoad { get; private set; }//Kilo's
         public int PassengerSeats {  get; private set; }
         public bool Status {  get; private set; }
-        public VehicleType VehicleType { get; private set; }
+        public VehicleType Type { get; private set; }
 
 
 
-        public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, VehicleType vehicleType)
+        //public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, VehicleType vehicleType)
+        //{
+        //    Mileage = mileage;
+        //    WriteOff = writeOff;
+        //    MaxLoad = maxload;
+        //    PassengerSeats = passengerSeats;
+        //    Status = status;
+        //    Type = vehicleType;
+        //}
+
+        public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, int vehicleType)
         {
             Mileage = mileage;
             WriteOff = writeOff;
             MaxLoad = maxload;
             PassengerSeats = passengerSeats;
             Status = status;
-            VehicleType = vehicleType;
+
+            if(vehicleType == 1)
+            {
+                Type = VehicleType.Taxi;
+            }
+            else if (vehicleType == 2)
+            {
+                Type = VehicleType.Truck;
+            }     
         }
     }
 }

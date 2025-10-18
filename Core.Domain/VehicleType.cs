@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Domain
 {
+    /// <summary>
+    /// 1 = Taxi, 2 = Truck
+    /// </summary>
     public enum VehicleType
     {
         Taxi = 1,

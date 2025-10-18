@@ -13,14 +13,8 @@ namespace Infrastructure.DataAccess.DTO
         public string End { get;  set; } = string.Empty;
         public int Distance { get;  set; }
         public DateTime Date { get;  set; }
-        public VehicleDTO VehicleDTO { get; set; }
-        public CargoDTO CargoDTO { get; set; }
+        public VehicleDTO VehicleDTO { get; set; } = new VehicleDTO();
+        public CargoDTO CargoDTO { get; set; } = new CargoDTO();
 
-
-        public RideDTO(VehicleDTO vehicleDTO, CargoDTO cargoDTO)
-        {
-            VehicleDTO = vehicleDTO;
-            CargoDTO = cargoDTO;    
-        }
     }
 }
