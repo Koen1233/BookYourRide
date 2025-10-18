@@ -9,7 +9,38 @@
 
 
     <form method="post">
-        
+        @if (Model.Rides?.Count > 0)
+        {
+            <h1>Your booked Rides!</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Beginning</th>
+                        <th>End</th>
+                        <th>Price</th>
+                        <th>Distance</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ride in Model.Rides)
+                    {
+                        <tr>
+                            <td>@ride.Beginning</td>
+                            <td>@ride.End</td>
+                            <td>$ @ride.Price</td>
+                            <td>@ride.Distance</td>
+                            <td>@ride.Date</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h1>You have no rides booked, book a ride now!</h1>
+        }
+
 
         <input type="submit" asp-page-handler="Book a Ride" class="btn btn-primary" value="Create Ride" />
         @*onderstaande misschien voor toekomstige updates?*@
