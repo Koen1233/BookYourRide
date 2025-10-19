@@ -11,15 +11,24 @@ namespace BYR_WebApp.Pages.Ride
         //Core.Domain.Ride omdat Ride ook deze namespace is
         public IReadOnlyList<Core.Domain.Ride> Rides { get; private set; } = [];
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            //Alle ritten van de ingelogde customer ophalen
-            //Voor nu 1 customer uit de database halen, straks via Cookies de ingelogde customer ophalen
-            Rides = CustomerService.GetRides(1);
+            var cookievalue = Request.Cookies["key"];
+            if (cookievalue != null)
+            {
+                int.TryParse(cookievalue, out int id);    
+                Rides = CustomerService.GetRides(id);
+                return Page();
+            }      
+            return Page(); 
         }
 
         public void OnPost()
         {
+            //moet uiteindelijk weg, en doorverwijzen naar bepaalde pagina
+            var cookievalue = Request.Cookies["key"];
+            int.TryParse(cookievalue, out int id);
+            Rides = CustomerService.GetRides(id);
         }
     }
 }

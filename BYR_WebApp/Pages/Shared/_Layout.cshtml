@@ -88,13 +88,13 @@
                         <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Index" ? "active" : "")" asp-page="/Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Bookings/Index" ? "active" : "")" asp-page="/Bookings/Index">Ritten</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Ride/Actions" ? "active" : "")" asp-page="/Ride/Actions">Rides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Customers/Index" ? "active" : "")" asp-page="/Customers/Index">Klanten</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Ride/Book" ? "active" : "")" asp-page="/Ride/Book">Book a Ride</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/About" ? "active" : "")" asp-page="/About">Over</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/About" ? "active" : "")" asp-page="/About">About</a>
                     </li>
                 </ul>
             </div>
@@ -111,7 +111,7 @@
     <!-- === Footer === -->
     <footer>
         <div class="container">
-            &copy; @DateTime.Now.Year - @appName | Alle rechten voorbehouden
+            &copy; @DateTime.Now.Year - @appName | All rights reserved
         </div>
     </footer>
 

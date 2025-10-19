@@ -20,13 +20,13 @@ namespace Infrastructure.DataAccess
             mysqlConnection.Open();
 
             MySqlCommand mysqlCommand = new MySqlCommand("SELECT * FROM ride INNER JOIN vehicle INNER JOIN cargo " +
-            "on ride.VehicleID = vehicle.VehicleID and ride.CargoID = cargo.CargoID WHERE CustomerID=?CustomerID;", mysqlConnection);
+            "on ride.VehicleID = vehicle.VehicleID and ride.CargoID = cargo.CargoID WHERE CustomerID=?CustomerID ORDER BY date;", mysqlConnection);
             mysqlCommand.Parameters.Add(new MySqlParameter("CustomerID", customerID));
 
             MySqlDataReader mysqlDataReader = mysqlCommand.ExecuteReader();
             while (mysqlDataReader.Read())
             {
-                //Get Cargo
+                //Get Cargo for freight transport
                 CargoDTO cargoDTO;
                 if (mysqlDataReader.GetInt32("people") == 0)
                 {
@@ -38,7 +38,7 @@ namespace Infrastructure.DataAccess
                         Weight = mysqlDataReader.GetInt32("weight"),
                     };  
                 }
-                else
+                else //get cargo for person transport
                 {
                     cargoDTO = new CargoDTO()
                     {

@@ -15,15 +15,15 @@ namespace Core.Domain.Services
         public static LoginResult TryLogin(Login login) 
         {
             LoginRepository loginRepository = new LoginRepository();
-            string errorMessage = loginRepository.TryLogin(login.Map());
+            (string errorMessage, int id) = loginRepository.TryLogin(login.Map());
 
             if (errorMessage == "")
             {
-                return new LoginResult();
+                return new LoginResult(id);
             }
             else
             {
-                return new LoginResult(errorMessage);
+                return new LoginResult(errorMessage, id);
             }
         }
     }

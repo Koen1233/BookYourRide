@@ -3,9 +3,35 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@{
+    var firstName = Request.Cookies["firstname"];
+}
+
+@*Switch statement to greet at current time*@
+@{
+    var txt = "";
+    int currentTime = DateTime.Now.Hour;
+    switch (currentTime)
+    {
+        case < 6:
+            txt = "Good Night";
+            break;
+        case < 12:
+            txt = "Good Morning";
+            break;
+        case < 18:
+        txt = "Good Afternoon";
+            break;
+        case >= 18:
+            txt = "Good Evening";
+            break;
+    }
+}
+    
+
 
 <div class="text-center">
-    <h1 class="display-4">Book Your Ride!</h1>
+    <h1 class="display-4">@txt @firstName, ready to Book Your Ride?</h1>
 </div>
 
 

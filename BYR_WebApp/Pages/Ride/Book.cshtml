@@ -1,0 +1,15 @@
+﻿@page
+@model BYR_WebApp.Pages.Ride.BookModel
+@{
+    ViewData["Title"] = "Ride Actions";
+    var cookievalue = Request.Cookies["key"];
+}
+
+@if (cookievalue == null)
+{
+    <h1 class="text-center">You are not able to book a ride, you have to <a href="/Authentication/TryLogin">login</a> first!</h1>
+}
+else
+{
+    <h1 class="text-center">Fill in all details below, then submit this ride request</h1>
+}

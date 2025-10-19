@@ -2,53 +2,61 @@
 @model BYR_WebApp.Pages.Ride.ActionsModel
 @{
     ViewData["Title"] = "Ride Actions";
+    var cookievalue = Request.Cookies["key"];
 }
 
-<div class="text-center">
-
-
-
-    <form method="post">
-        @if (Model.Rides?.Count > 0)
-        {
-            <h1>Your booked Rides!</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Beginning</th>
-                        <th>End</th>
-                        <th>Price</th>
-                        <th>Distance</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var ride in Model.Rides)
-                    {
+@if (cookievalue == null)
+    {
+    <h1 class="text-center">You are not able to see rides, you have to <a href="/Authentication/TryLogin">login</a> first!</h1>
+}
+else
+{
+    <div class="text-center">
+        <form method="post">
+            @if (Model.Rides?.Count > 0)
+            {
+                <h1>Your booked Rides!</h1>
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@ride.Beginning</td>
-                            <td>@ride.End</td>
-                            <td>$ @ride.Price</td>
-                            <td>@ride.Distance</td>
-                            <td>@ride.Date</td>
+                            <th>Beginning</th>
+                            <th>End</th>
+                            <th>Price</th>
+                            <th>Distance</th>
+                            <th>Date</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        }
-        else
-        {
-            <h1>You have no rides booked, book a ride now!</h1>
-        }
+                    </thead>
+                    <tbody>
+                        @foreach (var ride in Model.Rides)
+                        {
+                            <tr>
+                                <td>@ride.Beginning</td>
+                                <td>@ride.End</td>
+                                <td>€ @ride.Price</td>
+                                <td>@ride.Distance km</td>
+                                <td>@ride.Date</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h1 class="text-center">You have no rides booked, book a ride now!</h1>
+            }
+
+            <br /><br />
+            <a class="btn btn-success" asp-page="/Ride/Book">Book a Ride</a>
+            <a class="btn btn-danger" asp-page="/Ride/Actions">Delete a Ride</a>
+            @*onderstaande misschien voor toekomstige updates?*@
+            @*<input type="submit" asp-page-handler="UpdateRide" class="btn btn-warning" value="Update Ride" />*@
+            @*<input type="submit" asp-page-handler="Delete a Ride" class="btn btn-danger" value="Delete a Ride" />*@
+        </form>
+    </div>
+}
 
 
-        <input type="submit" asp-page-handler="Book a Ride" class="btn btn-primary" value="Create Ride" />
-        @*onderstaande misschien voor toekomstige updates?*@
-        @*<input type="submit" asp-page-handler="UpdateRide" class="btn btn-warning" value="Update Ride" />*@
-        <input type="submit" asp-page-handler="Delete a Ride" class="btn btn-danger" value="Delete Ride" />
-    </form>
 
-</div>
 
 
 @section Scripts {

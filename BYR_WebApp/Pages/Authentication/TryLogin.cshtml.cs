@@ -14,13 +14,7 @@ namespace BYR_WebApp.Pages.Authentication
 
         public void OnGet()
         {
-            //Response.Cookies.Append("MyCookie", "value1");
-            //var CookieValue = Request.Cookies["MyCookie"];
-            //var cookieOptions = new CookieOptions
-            //{
-            //    Expires = DateTime.Now.AddDays(30)
-            //};
-            //Response.Cookies.Append("MyCookie", "value1", cookieOptions);
+            
         }
 
         public IActionResult OnPost()
@@ -33,9 +27,13 @@ namespace BYR_WebApp.Pages.Authentication
             LoginResult loginResult = LoginService.TryLogin(LoginModel.Map());
             if (loginResult.Success == true)
             {
+                Response.Cookies.Append("key", loginResult.ID.ToString(), new CookieOptions
+                {
+                    Expires = DateTime.Now.AddMinutes(15)
+                });
                 return Redirect("/Ride/Actions");
-                //Employee naar een andere pagina redirecten?
-                //Cookies toewijzen voor ingelogde gebruiker
+                
+                //Employee naar een andere pagina redirecten of andere info/buttons laten zien?
             }
             else
             {
