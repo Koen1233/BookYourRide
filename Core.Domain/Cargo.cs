@@ -14,6 +14,8 @@ namespace Core.Domain
         public int Height { get; private set; }
         public int Weight { get; private set; }
 
+        //Inheritance voor type cargo toepassen of gewoon Cargo en PersonTransport klasse maken?
+
         public Cargo(int people, int length, int width, int height, int weight)
         {
             People = people;

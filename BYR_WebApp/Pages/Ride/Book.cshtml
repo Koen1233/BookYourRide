@@ -9,7 +9,59 @@
 {
     <h1 class="text-center">You are not able to book a ride, you have to <a href="/Authentication/TryLogin">login</a> first!</h1>
 }
+@*  
+    - Type rit selecteren van tevoren
+    - Cargo info opgeven ADHV geselecteerde voertuig
+    - Rit info opgeven
+    - Prijs berekenen van de rit, direct in het scherm laten zien?
+     
+    - Alle validatie uitvoeren, eerst client side, daarna server side in het domein?
+*@
 else
 {
     <h1 class="text-center">Fill in all details below, then submit this ride request</h1>
+
+    <form class="text-center" method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="VehicleModel.Type" class="control-label"></label>
+            <select asp-for="VehicleModel.Type" class="form-control" asp-items="@(new SelectList(Model.vehicleTypes))">
+                <option value="">Type of Transport</option>
+            </select>
+            <span asp-validation-for="VehicleModel.Type" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="RideModel.Beginning" class="control-label"></label>
+            <input asp-for="RideModel.Beginning" class="form-control" />
+            <span asp-validation-for="RideModel.Beginning" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RideModel.End" class="control-label"></label>
+            <input asp-for="RideModel.End" class="form-control"  />
+            <span asp-validation-for="RideModel.End" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RideModel.Distance" class="control-label"></label>
+            <input asp-for="RideModel.Distance" class="form-control" min="1" step="1"/>
+            <span asp-validation-for="RideModel.Distance" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RideModel.Date" class="control-label"></label>
+            <input asp-for="RideModel.Date" class="form-control" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
+            <span asp-validation-for="RideModel.Date" class="text-danger"></span>
+        </div>
+
+       
+        <input type="submit" class="btn btn-success" value="Submit Ride">
+
+    </form>
+}
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

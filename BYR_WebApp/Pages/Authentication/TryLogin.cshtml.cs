@@ -29,7 +29,7 @@ namespace BYR_WebApp.Pages.Authentication
             {
                 Response.Cookies.Append("key", loginResult.ID.ToString(), new CookieOptions
                 {
-                    Expires = DateTime.Now.AddMinutes(15)
+                    Expires = DateTime.Now.AddHours(1)
                 });
                 return Redirect("/Ride/Actions");
                 

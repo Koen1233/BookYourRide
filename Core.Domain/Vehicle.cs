@@ -15,6 +15,8 @@ namespace Core.Domain
         public bool Status {  get; private set; }
         public VehicleType Type { get; private set; }
 
+        //Inheritance toepassen voor de 2 type voertuigen?
+
 
 
         //public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, VehicleType vehicleType)
@@ -34,15 +36,8 @@ namespace Core.Domain
             MaxLoad = maxload;
             PassengerSeats = passengerSeats;
             Status = status;
-
-            if(vehicleType == 1)
-            {
-                Type = VehicleType.Taxi;
-            }
-            else if (vehicleType == 2)
-            {
-                Type = VehicleType.Truck;
-            }     
+            Type = (VehicleType)vehicleType;
+            
         }
     }
 }
