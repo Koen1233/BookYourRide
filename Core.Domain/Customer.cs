@@ -29,6 +29,7 @@ namespace Core.Domain
             }
         }
 
+        //Wel nodig, ivm boeken van rit via de UI en oplsaan in database?
         public void BookRide()
         {
             

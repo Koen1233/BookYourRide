@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Services
 {
-    public class RegisterService
+    public static class RegisterService
     {
         public static RegisterResult CheckDuplicateEmail(string email)
         {

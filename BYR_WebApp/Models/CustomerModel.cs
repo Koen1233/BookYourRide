@@ -6,7 +6,7 @@ namespace BYR_WebApp.Models
 {
     public class CustomerModel
     {
-        //Minimale lengte i.i.g. 1, ivm app testing (email, pw = a,a of b,b) makkelijk ingloggen/registreren
+        //Minimale lengte is vooralsog 1, ivm app testing (email, pw = a,a of b,b) voor makkelijk ingloggen/registreren te testen
 
         [Required(ErrorMessage = "Please enter your Email address")]
         [StringLength(maximumLength:45, MinimumLength = 1)]

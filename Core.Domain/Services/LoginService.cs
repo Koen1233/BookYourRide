@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Services
 {
-    public class LoginService
+    public static class LoginService
     {
         public static LoginResult TryLogin(Login login) 
         {

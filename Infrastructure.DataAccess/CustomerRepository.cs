@@ -23,57 +23,67 @@ namespace Infrastructure.DataAccess
             "on ride.VehicleID = vehicle.VehicleID and ride.CargoID = cargo.CargoID WHERE CustomerID=?CustomerID ORDER BY date;", mysqlConnection);
             mysqlCommand.Parameters.Add(new MySqlParameter("CustomerID", customerID));
 
-            MySqlDataReader mysqlDataReader = mysqlCommand.ExecuteReader();
-            while (mysqlDataReader.Read())
+            try
             {
-                //Get Cargo for freight transport
-                CargoDTO cargoDTO;
-                if (mysqlDataReader.GetInt32("people") == 0)
-                {
-                    cargoDTO = new CargoDTO()
-                    {
-                        Length = mysqlDataReader.GetInt32("length"),
-                        Width = mysqlDataReader.GetInt32("width"),
-                        Height = mysqlDataReader.GetInt32("height"),
-                        Weight = mysqlDataReader.GetInt32("weight"),
-                    };  
-                }
-                else //get cargo for person transport
-                {
-                    cargoDTO = new CargoDTO()
-                    {
-                        People = mysqlDataReader.GetInt32("people"),
-                    };
-                }   
-                
-                //Get vehicle
-                VehicleDTO vehicleDTO = new VehicleDTO()
-                {
-                    Mileage = mysqlDataReader.GetInt32("mileage"),
-                    WriteOff = mysqlDataReader.GetInt32("writeOff"),
-                    MaxLoad = mysqlDataReader.GetInt32("maxLoad"),
-                    PassengerSeats = mysqlDataReader.GetInt32("passengerSeats"),
-                    Status = mysqlDataReader.GetBoolean("vehicleStatus"),
-                    VehicleType = mysqlDataReader.GetInt32("vehicleType"),
-                    //kan niet onderstaande doen dus nu als INT ophalen.
-                    //VehicleTypeDTO = mysqlDataReader.GetEnumerator("vehicleType")
-                };
+                MySqlDataReader mysqlDataReader = mysqlCommand.ExecuteReader();
 
-                //Get Vehicle
-                RideDTO rideDTO = new RideDTO()
+                while (mysqlDataReader.Read())
                 {
-                    Price = mysqlDataReader.GetInt32("price"),
-                    Beginning = mysqlDataReader.GetString("beginning"),
-                    End = mysqlDataReader.GetString("end"),
-                    Distance = mysqlDataReader.GetInt32("distance"),
-                    Date = mysqlDataReader.GetDateTime("date"),
-                    CargoDTO = cargoDTO,
-                    VehicleDTO = vehicleDTO,
-                };
-                rideDTOs.Add(rideDTO);
+                    //Get Cargo for freight transport
+                    CargoDTO cargoDTO;
+                    if (mysqlDataReader.GetInt32("people") == 0)
+                    {
+                        cargoDTO = new CargoDTO()
+                        {
+                            Length = mysqlDataReader.GetInt32("length"),
+                            Width = mysqlDataReader.GetInt32("width"),
+                            Height = mysqlDataReader.GetInt32("height"),
+                            Weight = mysqlDataReader.GetInt32("weight"),
+                        };
+                    }
+                    else //get cargo for person transport
+                    {
+                        cargoDTO = new CargoDTO()
+                        {
+                            People = mysqlDataReader.GetInt32("people"),
+                        };
+                    }
+
+                    //Get vehicle
+                    VehicleDTO vehicleDTO = new VehicleDTO()
+                    {
+                        Mileage = mysqlDataReader.GetInt32("mileage"),
+                        WriteOff = mysqlDataReader.GetInt32("writeOff"),
+                        MaxLoad = mysqlDataReader.GetInt32("maxLoad"),
+                        PassengerSeats = mysqlDataReader.GetInt32("passengerSeats"),
+                        Status = mysqlDataReader.GetBoolean("vehicleStatus"),
+                        VehicleType = mysqlDataReader.GetInt32("vehicleType"),
+                        //kan niet onderstaande doen dus nu als INT ophalen.
+                        //VehicleTypeDTO = mysqlDataReader.GetEnumerator("vehicleType")
+                    };
+
+                    //Get Vehicle
+                    RideDTO rideDTO = new RideDTO()
+                    {
+                        Price = mysqlDataReader.GetInt32("price"),
+                        Beginning = mysqlDataReader.GetString("beginning"),
+                        End = mysqlDataReader.GetString("end"),
+                        Distance = mysqlDataReader.GetInt32("distance"),
+                        Date = mysqlDataReader.GetDateTime("date"),
+                        CargoDTO = cargoDTO,
+                        VehicleDTO = vehicleDTO,
+                    };
+                    rideDTOs.Add(rideDTO);
+                }
+                mysqlConnection.Close();
             }
-            mysqlConnection.Close();
+            catch
+            {
+                throw;
+                //Throw  new exception, of result object teruggeven
+            }
             return rideDTOs;
+
         }
     }
 }

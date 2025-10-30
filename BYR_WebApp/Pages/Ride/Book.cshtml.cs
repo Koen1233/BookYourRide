@@ -9,6 +9,7 @@ namespace BYR_WebApp.Pages.Ride
     {
         [BindProperty]
         public RideModel RideModel { get; set; } = new();
+
         [BindProperty]
         public VehicleModel VehicleModel { get; set; } = new();
 
