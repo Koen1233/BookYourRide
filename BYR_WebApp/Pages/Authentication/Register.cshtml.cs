@@ -31,13 +31,7 @@ namespace BYR_WebApp.Pages.Authentication
                 return Page();
             }
 
-            RegisterResult emailResult = RegisterService.CheckDuplicateEmail(CustomerModel.Email);
-            if (emailResult.Success == false)
-            {
-                ModelState.AddModelError(string.Empty, emailResult.ErrorMessage);
-                return Page();
-            }
-            else
+            try
             {
                 RegisterResult registerResult = RegisterService.TryRegister(CustomerModel.Map()); //.Map gebruikt het CustomerModel en geeft een Core domain Customer terug 
                 if (registerResult.Success == false)
@@ -49,6 +43,11 @@ namespace BYR_WebApp.Pages.Authentication
                 {
                     return Redirect("/Authentication/TryLogin");
                 }
+            }
+            catch(Exception ex) 
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
             }
         }
     }

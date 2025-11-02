@@ -16,15 +16,16 @@ namespace Infrastructure.DataAccess
         {
             List<RideDTO> rideDTOs = new List<RideDTO>();
 
-            MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?; database=bookyourride");
-            mysqlConnection.Open();
-
-            MySqlCommand mysqlCommand = new MySqlCommand("SELECT * FROM ride INNER JOIN vehicle INNER JOIN cargo " +
-            "on ride.VehicleID = vehicle.VehicleID and ride.CargoID = cargo.CargoID WHERE CustomerID=?CustomerID ORDER BY date;", mysqlConnection);
-            mysqlCommand.Parameters.Add(new MySqlParameter("CustomerID", customerID));
-
             try
             {
+                MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?.; database=bookyourride");
+                mysqlConnection.Open();
+
+                MySqlCommand mysqlCommand = new MySqlCommand("SELECT * FROM ride INNER JOIN vehicle INNER JOIN cargo " +
+                "on ride.VehicleID = vehicle.VehicleID and ride.CargoID = cargo.CargoID WHERE CustomerID=?CustomerID ORDER BY date;", mysqlConnection);
+                mysqlCommand.Parameters.Add(new MySqlParameter("CustomerID", customerID));
+
+
                 MySqlDataReader mysqlDataReader = mysqlCommand.ExecuteReader();
 
                 while (mysqlDataReader.Read())
@@ -76,14 +77,13 @@ namespace Infrastructure.DataAccess
                     rideDTOs.Add(rideDTO);
                 }
                 mysqlConnection.Close();
+                return rideDTOs;
             }
             catch
             {
-                throw;
-                //Throw  new exception, of result object teruggeven
+                throw new Exception("Something went wrong with retrieving your rides.");
+                
             }
-            return rideDTOs;
-
         }
     }
 }

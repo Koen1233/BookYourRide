@@ -14,13 +14,20 @@ namespace BYR_WebApp.Pages.Ride
         public IActionResult OnGet()
         {
             var cookievalue = Request.Cookies["key"];
-            if (cookievalue != null)
+            if (cookievalue == null)
             {
-                int.TryParse(cookievalue, out int id);    
-                Rides = CustomerService.GetRides(id);
                 return Page();
-            }      
-            return Page(); 
+            }
+            try
+            {
+                int.TryParse(cookievalue, out int id);
+                Rides = CustomerService.GetRides(id);
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+            return Page();
         }
 
         public void OnPost()

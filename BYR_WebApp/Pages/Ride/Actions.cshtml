@@ -13,6 +13,9 @@ else
 {
     <div class="text-center">
         <form method="post">
+
+            <div asp-validation-summary="All" class="text-danger"></div> @*Systeem laat foutmelding zien, maar de pagina wordt nog geladen in de laatste else *@
+
             @if (Model.Rides.Count > 0)
             {
                 <h1>Your booked Rides!</h1>
@@ -40,7 +43,7 @@ else
                     </tbody>
                 </table>
             }
-            else
+            else if (ModelState.ErrorCount == 0)
             {
                 <h1 class="text-center">You have no rides booked, book a ride now!</h1>
             }

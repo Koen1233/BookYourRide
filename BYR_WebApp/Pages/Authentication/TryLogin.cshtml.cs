@@ -24,20 +24,30 @@ namespace BYR_WebApp.Pages.Authentication
                 return Page();
             }
 
-            LoginResult loginResult = LoginService.TryLogin(LoginModel.Map());
-            if (loginResult.Success == true)
+            
+            try
             {
-                Response.Cookies.Append("key", loginResult.ID.ToString(), new CookieOptions
+                LoginResult loginResult = LoginService.TryLogin(LoginModel.Map());
+
+                if (loginResult.Success == true)
                 {
-                    Expires = DateTime.Now.AddHours(1)
-                });
-                return Redirect("/Ride/Actions");
-                
-                //Employee naar een andere pagina redirecten of andere info/buttons laten zien?
+                    Response.Cookies.Append("key", loginResult.ID.ToString(), new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddHours(1)
+                    });
+                    return Redirect("/Ride/Actions");
+
+                    //Employee naar een andere pagina redirecten of andere info/buttons laten zien?
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, loginResult.ErrorMessage);
+                    return Page();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                ModelState.AddModelError(string.Empty, loginResult.ErrorMessage);
+                ModelState.AddModelError(string.Empty, ex.Message);
                 return Page();
             }
         }

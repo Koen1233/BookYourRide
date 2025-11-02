@@ -11,23 +11,7 @@ using System.Threading.Tasks;
 namespace Core.Domain.Services
 {
     public static class RegisterService
-    {
-        public static RegisterResult CheckDuplicateEmail(string email)
-        {
-            RegisterRepository registerRepository = new RegisterRepository();
-            string errorMessage = registerRepository.CheckDuplicateEmail(email);
-            if (errorMessage == "")
-            {
-                return new RegisterResult();
-            }
-            else
-            {
-                return new RegisterResult(errorMessage);
-            }
-            //Duplicate email geeft maar 1 fout terug, namelijk dat de email al bestaat. Gebruik van RegisterResult nodig?
-        }
-
-        
+    {        
         public static RegisterResult TryRegister(Register register)
         {
             RegisterRepository registerRepository = new RegisterRepository();
@@ -38,9 +22,8 @@ namespace Core.Domain.Services
             }
             else
             {
-                return new RegisterResult(errorMessage); //altijd goed, tenzij de connectie/implementatie in database fout gaat?
+                return new RegisterResult(errorMessage); 
             }
         }
-
     }
 }
