@@ -37,7 +37,9 @@ namespace Core.Domain
             PassengerSeats = passengerSeats;
             Status = status;
             Type = (VehicleType)vehicleType;
-            
+
+            //Type casting for a string to enum
+            //Type = Enum.Parse<VehicleType>("vehicleType");
         }
     }
 }

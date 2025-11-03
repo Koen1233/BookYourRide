@@ -43,9 +43,6 @@ namespace Infrastructure.DataAccess
                 {
                     throw new Exception("Something went wrong when connecting to the database, try again later");
                 }
-               
-
-               
             }
             else //Customer login
             {

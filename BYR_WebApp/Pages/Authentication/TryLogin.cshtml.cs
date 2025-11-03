@@ -45,7 +45,7 @@ namespace BYR_WebApp.Pages.Authentication
                     return Page();
                 }
             }
-            catch(Exception ex)
+            catch(Exception ex) //for catching faults in the datarepository
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
                 return Page();
