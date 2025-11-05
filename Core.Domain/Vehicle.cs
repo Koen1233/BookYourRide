@@ -17,18 +17,6 @@ namespace Core.Domain
 
         //Inheritance toepassen voor de 2 type voertuigen?
 
-
-
-        //public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, VehicleType vehicleType)
-        //{
-        //    Mileage = mileage;
-        //    WriteOff = writeOff;
-        //    MaxLoad = maxload;
-        //    PassengerSeats = passengerSeats;
-        //    Status = status;
-        //    Type = vehicleType;
-        //}
-
         public Vehicle(int mileage, int writeOff, int maxload, int passengerSeats, bool status, int vehicleType)
         {
             Mileage = mileage;
@@ -36,10 +24,12 @@ namespace Core.Domain
             MaxLoad = maxload;
             PassengerSeats = passengerSeats;
             Status = status;
+
+            //Type casting van int naar enum
             Type = (VehicleType)vehicleType;
 
-            //Type casting for a string to enum
-            //Type = Enum.Parse<VehicleType>("vehicleType");
+            //Type casting van string naar enum
+            //Type = Enum.Parse<VehicleType>("string");
         }
     }
 }

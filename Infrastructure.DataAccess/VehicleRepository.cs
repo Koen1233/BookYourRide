@@ -9,12 +9,13 @@ namespace Infrastructure.DataAccess
 {
     public class VehicleRepository
     {
-        public List<VehicleDTO> GetVehicles(List<CargoDTO> cargo)
+        //Implementeren
+
+        public List<VehicleDTO> GetVehicles()
         {
             List<VehicleDTO> vehicles = new List<VehicleDTO>();
 
             return vehicles;
-        }
-        //Vehicles ophalen, ENUM Vehiclytype als int en later vertalen naar de juiste ENUM
+        } 
     }
 }

@@ -18,7 +18,7 @@ namespace Infrastructure.DataAccess
 
             try
             {
-                MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?.; database=bookyourride");
+                MySqlConnection mysqlConnection = new MySqlConnection("server=localhost.;User ID=KoenV; Password=DBhost013!?; database=bookyourride");
                 mysqlConnection.Open();
 
                 MySqlCommand mysqlCommand = new MySqlCommand("SELECT * FROM ride INNER JOIN vehicle INNER JOIN cargo " +
@@ -30,7 +30,7 @@ namespace Infrastructure.DataAccess
 
                 while (mysqlDataReader.Read())
                 {
-                    //Get Cargo for freight transport
+                    //Cargo transpot
                     CargoDTO cargoDTO;
                     if (mysqlDataReader.GetInt32("people") == 0)
                     {
@@ -42,7 +42,7 @@ namespace Infrastructure.DataAccess
                             Weight = mysqlDataReader.GetInt32("weight"),
                         };
                     }
-                    else //get cargo for person transport
+                    else //Person transport
                     {
                         cargoDTO = new CargoDTO()
                         {
@@ -63,7 +63,7 @@ namespace Infrastructure.DataAccess
                         //VehicleTypeDTO = mysqlDataReader.GetEnumerator("vehicleType")
                     };
 
-                    //Get Vehicle
+                    //Get ride data and add CargoDTO and VehicleDTO
                     RideDTO rideDTO = new RideDTO()
                     {
                         Price = mysqlDataReader.GetInt32("price"),
@@ -82,7 +82,6 @@ namespace Infrastructure.DataAccess
             catch
             {
                 throw new Exception("Something went wrong with retrieving your rides.");
-                
             }
         }
     }

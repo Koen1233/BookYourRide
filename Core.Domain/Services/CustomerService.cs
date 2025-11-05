@@ -12,6 +12,7 @@ namespace Core.Domain.Services
     public static class CustomerService
     {
         //Via de ID van de ingelogde customer alle ritten ophalen
+        
         public static List<Ride> GetRides(int id)
         {
             List<RideDTO> rideDTOs = CustomerRepository.GetRides(id);

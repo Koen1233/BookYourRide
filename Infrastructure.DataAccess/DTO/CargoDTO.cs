@@ -9,6 +9,7 @@ namespace Infrastructure.DataAccess.DTO
     public class CargoDTO
     {
         // =0; to set non used properties to 0
+        //SRP toepassen of Inheritence om duidelijkere scheiding te hebben tussen CargoObjecten?
         public int People { get; set; } = 0;
         public int Length { get; set; } = 0;
         public int Width { get; set; } = 0;

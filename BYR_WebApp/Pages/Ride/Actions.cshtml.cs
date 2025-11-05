@@ -32,10 +32,7 @@ namespace BYR_WebApp.Pages.Ride
 
         public void OnPost()
         {
-            //moet uiteindelijk weg, en doorverwijzen naar bepaalde pagina
-            //var cookievalue = Request.Cookies["key"];
-            //int.TryParse(cookievalue, out int id);
-            //Rides = CustomerService.GetRides(id);
+            //moet doorverwijzen naar andere pagina?
         }
     }
 }

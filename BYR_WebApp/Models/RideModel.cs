@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Configuration;
+using System.Runtime.CompilerServices;
 
 namespace BYR_WebApp.Models
 {
@@ -25,6 +26,7 @@ namespace BYR_WebApp.Models
         [Display(Name = "Date and Time")]
         public DateTime Date { get; set; }
 
+        //Zo een Vehicle en Cargo object toevoegen of los als [Bindproperty] in het Pagemodel?
         public VehicleModel Vehicle { get; set; } = new VehicleModel();
     }
 }

@@ -9,12 +9,7 @@ namespace Infrastructure.DataAccess
 {
     public class CargoRepository
     {
-        public List<CargoDTO> GetCargo()
-        {
-            List<CargoDTO> cargo = new List<CargoDTO>();
-
-            return cargo;
-        }
-
+      //Implementeren
+      //Wel nodig?
     }
 }

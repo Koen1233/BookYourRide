@@ -10,14 +10,10 @@ namespace Core.Domain.Helper
     {
         public static void CancelRide()
         {
-            //Kan de static methode op de klasse CanCelHelper aanroepen
-            //Cancel Ride is dan ook het enige wat deze klasse zal doen
-        }
-
-        public static void Refund()
-        {
-            //Kan de static methode op de klasse CanCelHelper aanroepen
-            //Refund is dan ook het enige wat deze klasse zal doen
+          //Nog implementeren
+          //Mogelijk geld aan de klant teruggeven
+          //KM stand pas verwerken als de rit daadwerkelijk pas is uitgevoerd
+          //Anders moet info weer teruggedraaid worden..
         }
     }
 }

@@ -13,8 +13,10 @@ namespace Infrastructure.DataAccess
 {
     public class EmployeeRepository
     {
-
-
+        ///Implementeren, onderstaande is oude code waarmee ik alles van een employee ophaal
+        ///Makkelijk aan te passen 
+        
+       
         //public List<EmployeeDTO> GetEmployees()
         //{
         //    List<EmployeeDTO> employees = new List<EmployeeDTO>();

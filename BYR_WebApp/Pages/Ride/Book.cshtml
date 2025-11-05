@@ -51,7 +51,9 @@ else
         </div>
         <div class="form-group">
             <label asp-for="RideModel.Date" class="control-label"></label>
-            <input asp-for="RideModel.Date" class="form-control" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
+            <input asp-for="RideModel.Date" class="form-control" type="datetime-local" 
+             value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" 
+             min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd HH:mm")" />@*Geen rit boeken voor 24 uur*@
             <span asp-validation-for="RideModel.Date" class="text-danger"></span>
         </div>
 

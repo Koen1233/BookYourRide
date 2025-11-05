@@ -10,6 +10,7 @@ namespace BYR_WebApp.Pages.Ride
         [BindProperty]
         public RideModel RideModel { get; set; } = new();
 
+        //Nog een model toevoegen of binnen het RideModel toevoegen?
         [BindProperty]
         public VehicleModel VehicleModel { get; set; } = new();
 

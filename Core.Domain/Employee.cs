@@ -19,6 +19,7 @@ namespace Core.Domain
 
         public IReadOnlyList<Ride> Rides { get { return _rides; } }
 
+        //Nog niks met employee gedaan
         public Employee(Login loginCreds, string firstName, string lastName, bool status, List<Ride> rides)
         {
             loginCredentials = loginCreds;
@@ -39,6 +40,7 @@ namespace Core.Domain
         }
 
         //SRP Changestatus splitsten in onderstaande?
+        //Validatie toepassen, checken juiste authorisatie of de employee wel status mag aanpassen?
 
         internal static void ChangeEmployeeStatus(Employee employee, bool status)
         {
