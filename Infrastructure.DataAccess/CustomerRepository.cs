@@ -59,8 +59,6 @@ namespace Infrastructure.DataAccess
                         PassengerSeats = mysqlDataReader.GetInt32("passengerSeats"),
                         Status = mysqlDataReader.GetBoolean("vehicleStatus"),
                         VehicleType = mysqlDataReader.GetInt32("vehicleType"),
-                        //kan niet onderstaande doen dus nu als INT ophalen.
-                        //VehicleTypeDTO = mysqlDataReader.GetEnumerator("vehicleType")
                     };
 
                     //Get ride data and add CargoDTO and VehicleDTO
