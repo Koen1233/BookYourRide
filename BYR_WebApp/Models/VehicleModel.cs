@@ -1,4 +1,4 @@
-﻿using Core.Domain;
+﻿using Core.Domain.Vehicles;
 using System.ComponentModel.DataAnnotations;
 
 namespace BYR_WebApp.Models

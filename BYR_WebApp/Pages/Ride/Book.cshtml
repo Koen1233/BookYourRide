@@ -26,11 +26,11 @@ else
         <div asp-validation-summary="All" class="text-danger"></div>
 
         <div class="form-group">
-            <label asp-for="VehicleModel.Type" class="control-label"></label>
-            <select asp-for="VehicleModel.Type" class="form-control" asp-items="@(new SelectList(Model.vehicleTypes))">
+            <label asp-for="RideModel.VehicleModel.Type" class="control-label"></label>
+            <select asp-for="RideModel.VehicleModel.Type" class="form-control" asp-items="@(new SelectList(Model.vehicleTypes))">
                 <option value="">Type of Transport</option>
             </select>
-            <span asp-validation-for="VehicleModel.Type" class="text-danger"></span>
+            <span asp-validation-for="RideModel.VehicleModel.Type" class="text-danger"></span>
         </div>
         
         <div class="form-group">
@@ -53,7 +53,7 @@ else
             <label asp-for="RideModel.Date" class="control-label"></label>
             <input asp-for="RideModel.Date" class="form-control" type="datetime-local" 
              value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" 
-             min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd HH:mm")" />@*Geen rit boeken voor 24 uur*@
+             min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd HH:mm")" />@*Geen rit boeken binnen 24 uur*@
             <span asp-validation-for="RideModel.Date" class="text-danger"></span>
         </div>
 

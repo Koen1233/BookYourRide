@@ -21,7 +21,7 @@ namespace BYR_WebApp.Pages.Ride
             try
             {
                 int.TryParse(cookievalue, out int id);
-                Rides = CustomerService.GetRides(id);
+                Rides = RideService.GetRides(id);
             }
             catch(Exception ex)
             {

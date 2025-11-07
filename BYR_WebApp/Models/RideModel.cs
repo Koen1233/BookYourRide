@@ -22,11 +22,11 @@ namespace BYR_WebApp.Models
         [Display(Name = "Distance (KM)")]
         public int Distance { get; set; }//Wordt berekend?
 
-        [Required(ErrorMessage = "Please fill in the date")]
+        [Required(ErrorMessage = "Please select a date and time")]
         [Display(Name = "Date and Time")]
         public DateTime Date { get; set; }
 
         //Zo een Vehicle en Cargo object toevoegen of los als [Bindproperty] in het Pagemodel?
-        public VehicleModel Vehicle { get; set; } = new VehicleModel();
+        public VehicleModel VehicleModel { get; set; } = new VehicleModel();
     }
 }

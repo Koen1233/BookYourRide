@@ -9,7 +9,7 @@ using Core.Domain.Helpers.Mappers;
 
 namespace Core.Domain.Services
 {
-    public static class CustomerService
+    public static class RideService
     {
         //Via de ID van de ingelogde customer alle ritten ophalen
         

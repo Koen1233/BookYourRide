@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Domain
+namespace Core.Domain.Vehicles
 {
     /// <summary>
     /// 1 = Taxi, 2 = Truck

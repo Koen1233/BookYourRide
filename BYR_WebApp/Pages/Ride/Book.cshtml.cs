@@ -1,5 +1,5 @@
 using BYR_WebApp.Models;
-using Core.Domain;
+using Core.Domain.Vehicles;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,15 +11,14 @@ namespace BYR_WebApp.Pages.Ride
         public RideModel RideModel { get; set; } = new();
 
         //Nog een model toevoegen of binnen het RideModel toevoegen?
-        [BindProperty]
-        public VehicleModel VehicleModel { get; set; } = new();
+        //[BindProperty]
+        //public VehicleModel VehicleModel { get; set; } = new();
 
-        public List<VehicleType> vehicleTypes { get; set; } = new List<VehicleType>();
+        public List<VehicleType> vehicleTypes { get; set; } = new List<VehicleType> { VehicleType.Taxi, VehicleType.Truck };
 
         public void OnGet()
         {
-            vehicleTypes.Add(VehicleType.Taxi);
-            vehicleTypes.Add(VehicleType.Truck);
+           
         }
 
         public IActionResult OnPost()
