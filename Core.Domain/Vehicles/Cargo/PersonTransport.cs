@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Vehicles.Cargo
 {
-    internal class PersonCargo : Cargo
+    internal class PersonTransport : Cargo
     {
         public int People { get; private set; }
 
-        public PersonCargo(int people)
+        public PersonTransport(int people)
         {
             People = people;
 

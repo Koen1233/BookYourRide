@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Vehicles.Cargo
 {
-    internal class FreightCargo : Cargo
+    internal class FreightTransport : Cargo
     {
         public int Length { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public int Weight { get; private set; }
 
-        public FreightCargo(int length, int width, int height, int weight)
+        public FreightTransport(int length, int width, int height, int weight)
         {
             Length = length;
             Width = width;

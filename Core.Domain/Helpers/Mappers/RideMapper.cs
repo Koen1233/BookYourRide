@@ -30,7 +30,7 @@ namespace Core.Domain.Helpers.Mappers
                     vehicle = new Truck(truckDTO.Mileage, truckDTO.WriteOff, truckDTO.Status, truckDTO.MaxLoad);
 
                     FreightCargoDTO freightCargoDTO = (FreightCargoDTO)rideDTO.CargoDTO; //Type casting voor objecten?
-                    cargo = new FreightCargo(freightCargoDTO.Length, freightCargoDTO.Width, freightCargoDTO.Height, freightCargoDTO.Weight);
+                    cargo = new FreightTransport(freightCargoDTO.Length, freightCargoDTO.Width, freightCargoDTO.Height, freightCargoDTO.Weight);
                 }
                 else
                 {
@@ -38,7 +38,7 @@ namespace Core.Domain.Helpers.Mappers
                     vehicle = new Taxi(taxiDTO.Mileage, taxiDTO.WriteOff, taxiDTO.Status, taxiDTO.PassengerSeats);
 
                     PersonCargoDTO personCargoDTO = (PersonCargoDTO)rideDTO.CargoDTO;
-                    cargo = new PersonCargo(personCargoDTO.People);
+                    cargo = new PersonTransport(personCargoDTO.People);
                 }
 
                 Ride ride = new Ride(rideDTO.Price, rideDTO.Beginning, rideDTO.End, rideDTO.Distance, rideDTO.Date, vehicle, cargo);
