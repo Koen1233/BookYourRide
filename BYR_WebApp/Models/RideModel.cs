@@ -26,7 +26,6 @@ namespace BYR_WebApp.Models
         [Display(Name = "Date and Time")]
         public DateTime Date { get; set; }
 
-        //Zo een Vehicle en Cargo object toevoegen of los als [Bindproperty] in het Pagemodel?
         public VehicleModel VehicleModel { get; set; } = new VehicleModel();
     }
 }

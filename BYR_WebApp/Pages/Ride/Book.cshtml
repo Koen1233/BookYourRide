@@ -10,7 +10,7 @@
     <h1 class="text-center">You are not able to book a ride, you have to <a href="/Authentication/TryLogin">login</a> first!</h1>
 }
 @*  
-    - Type rit selecteren van tevoren
+    * Type rit selecteren van tevoren
     - Cargo info opgeven ADHV geselecteerde voertuig
     - Rit info opgeven
     - Prijs berekenen van de rit, direct in het scherm laten zien?
@@ -24,6 +24,8 @@ else
     <form class="text-center" method="post">
 
         <div asp-validation-summary="All" class="text-danger"></div>
+
+        <h5 class="text-center text-decoration-underline">It is not possible to book a ride within 24Hrs</h5>
 
         <div class="form-group">
             <label asp-for="RideModel.VehicleModel.Type" class="control-label"></label>
