@@ -1,8 +1,11 @@
 ﻿using Infrastructure.DataAccess.DTO;
+using Infrastructure.DataAccess.DTO.Cargo;
+using Infrastructure.DataAccess.DTO.Vehicles;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +14,7 @@ namespace Infrastructure.DataAccess
 {
     public class CustomerRepository
     {
-       
+       //Ritten ophalen in de customerRepository omdat het doeleind de customer is en dus niet ophalen in rideRepository?
         public static List<RideDTO> GetRides(int customerID)
         {
             List<RideDTO> rideDTOs = new List<RideDTO>();
@@ -30,11 +33,19 @@ namespace Infrastructure.DataAccess
 
                 while (mysqlDataReader.Read())
                 {
-                    //Cargo transpot
+                    //Get Cargo and Vehicle
                     CargoDTO cargoDTO;
-                    if (mysqlDataReader.GetInt32("people") == 0)
+                    VehicleDTO vehicleDTO;
+                    if (mysqlDataReader.GetInt32("passengerSeats") == 0 && mysqlDataReader.GetInt32("people") == 0) //Freight transport
                     {
-                        cargoDTO = new CargoDTO()
+                        vehicleDTO = new TruckDTO()
+                        {
+                            MaxLoad = mysqlDataReader.GetInt32("maxLoad"),
+                            Mileage = mysqlDataReader.GetInt32("mileage"),
+                            WriteOff = mysqlDataReader.GetInt32("writeOff"),
+                            Status = mysqlDataReader.GetBoolean("vehicleStatus")
+                        };
+                        cargoDTO = new FreightCargoDTO()
                         {
                             Length = mysqlDataReader.GetInt32("length"),
                             Width = mysqlDataReader.GetInt32("width"),
@@ -44,23 +55,18 @@ namespace Infrastructure.DataAccess
                     }
                     else //Person transport
                     {
-                        cargoDTO = new CargoDTO()
+                        vehicleDTO = new TaxiDTO()
+                        {
+                            PassengerSeats = mysqlDataReader.GetInt32("passengerSeats"),
+                            Mileage = mysqlDataReader.GetInt32("mileage"),
+                            WriteOff = mysqlDataReader.GetInt32("writeOff"),
+                            Status = mysqlDataReader.GetBoolean("vehicleStatus")
+                        };
+                        cargoDTO = new PersonCargoDTO()
                         {
                             People = mysqlDataReader.GetInt32("people"),
                         };
                     }
-
-                    //Get vehicle
-                    VehicleDTO vehicleDTO = new VehicleDTO()
-                    {
-                        Mileage = mysqlDataReader.GetInt32("mileage"),
-                        WriteOff = mysqlDataReader.GetInt32("writeOff"),
-                        MaxLoad = mysqlDataReader.GetInt32("maxLoad"),
-                        PassengerSeats = mysqlDataReader.GetInt32("passengerSeats"),
-                        Status = mysqlDataReader.GetBoolean("vehicleStatus"),
-                        VehicleType = mysqlDataReader.GetInt32("vehicleType"),
-                    };
-
                     //Get ride data and add CargoDTO and VehicleDTO
                     RideDTO rideDTO = new RideDTO()
                     {

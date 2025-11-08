@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Domain.Results
+namespace Core.Domain.Helpers.Results
 {
     public class RegisterResult
     {

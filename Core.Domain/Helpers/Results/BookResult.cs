@@ -4,36 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Domain.Results
+namespace Core.Domain.Helpers.Results
 {
-    public class LoginResult
+    public class BookResult
     {
         public bool Success { get; private set; }
 
         public string ErrorMessage { get; private set; }
 
-        public int ID { get; set; }//For returning the ID
-
 
         /// <summary>
-        /// Succesfull login attempt
+        /// Succesfully booked a ride
         /// </summary>
-        public LoginResult(int id)
+        public BookResult()
         {
             Success = true;
             ErrorMessage = string.Empty;
-            ID = id;
         }
 
         /// <summary>
-        /// Unsuccessfull login attempt
+        /// Unsuccessfully booked a ride
         /// </summary>
         /// <param name="errorMessage"></param>
-        public LoginResult(string errorMessage, int id)
+        public BookResult(string errorMessage)
         {
             Success = false;
             ErrorMessage = errorMessage;
-            ID = id;
         }
     }
 }

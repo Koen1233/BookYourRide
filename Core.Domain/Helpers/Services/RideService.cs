@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Infrastructure.DataAccess.DTO;
 using Core.Domain.Helpers.Mappers;
 
-namespace Core.Domain.Services
+namespace Core.Domain.Helpers.Services
 {
     public static class RideService
     {

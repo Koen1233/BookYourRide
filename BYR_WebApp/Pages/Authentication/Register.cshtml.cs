@@ -2,11 +2,11 @@ using Azure;
 using BYR_WebApp.Helpers.Mappers;
 using BYR_WebApp.Models;
 using Core.Domain;
-using Core.Domain.Services;
-using Core.Domain.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq.Expressions;
+using Core.Domain.Helpers.Services;
+using Core.Domain.Helpers.Results;
 
 namespace BYR_WebApp.Pages.Authentication
 {

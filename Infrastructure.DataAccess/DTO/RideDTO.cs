@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Infrastructure.DataAccess.DTO.Cargo;
+using Infrastructure.DataAccess.DTO.Vehicles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +15,8 @@ namespace Infrastructure.DataAccess.DTO
         public string End { get;  set; } = string.Empty;
         public int Distance { get;  set; }
         public DateTime Date { get;  set; }
-        public VehicleDTO VehicleDTO { get; set; } = new VehicleDTO();
-        public CargoDTO CargoDTO { get; set; } = new CargoDTO();
+        public VehicleDTO VehicleDTO { get; set; } //Nullable ivm foutmelding en lege constructor
+        public CargoDTO CargoDTO { get; set; } 
 
     }
 }

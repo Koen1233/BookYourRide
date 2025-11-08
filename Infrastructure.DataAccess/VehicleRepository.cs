@@ -1,4 +1,4 @@
-﻿using Infrastructure.DataAccess.DTO;
+﻿using Infrastructure.DataAccess.DTO.Vehicles;
 using System;
 using System.Collections.Generic;
 using System.Linq;

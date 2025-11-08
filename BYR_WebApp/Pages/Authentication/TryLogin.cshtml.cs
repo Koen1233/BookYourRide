@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Core.Domain.Services;
-using Core.Domain.Results;
 using BYR_WebApp.Models;
 using BYR_WebApp.Helpers.Mappers;
+using Core.Domain.Helpers.Services;
+using Core.Domain.Helpers.Results;
 
 namespace BYR_WebApp.Pages.Authentication
 {
