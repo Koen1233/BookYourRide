@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Vehicles.Cargo
 {
-    public abstract class Cargo
+    public enum CargoType
     {
-       //Parent klasse wel nodig? 
-       public CargoType CargoType { get; protected set; }
+        /// <summary>
+        /// PersonCargo = 1,  FreightCargo = 2
+        /// </summary>
+
+        PersonCargo = 1,
+        FreightCargo = 2,
     }
 }

@@ -13,6 +13,8 @@ namespace Core.Domain.Vehicles.Cargo
         public PersonCargo(int people)
         {
             People = people;
+
+            CargoType = CargoType.PersonCargo;
         }
     }
 }

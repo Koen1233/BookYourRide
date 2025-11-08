@@ -28,8 +28,10 @@ namespace Infrastructure.DataAccess
                         return "This email already has an account, continue to the Login page";
                     }
                 }
+                mysqlConnection.Close();
+                mysqlConnection.Open();
 
-                MySqlCommand insertCommand = new MySqlCommand("INSERT INTO bookyourride.customer (email, firstName, lastName, password) VAoLUES (@email, @firstName, @lastName, @password);", mysqlConnection);
+                MySqlCommand insertCommand = new MySqlCommand("INSERT INTO bookyourride.customer (email, firstName, lastName, password) VALUES (@email, @firstName, @lastName, @password);", mysqlConnection);
                 insertCommand.Parameters.AddWithValue("@email", registerDTO.Email);
                 insertCommand.Parameters.AddWithValue("@firstName", registerDTO.FirstName);
                 insertCommand.Parameters.AddWithValue("@lastName", registerDTO.LastName);

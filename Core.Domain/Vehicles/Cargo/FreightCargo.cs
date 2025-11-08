@@ -19,6 +19,8 @@ namespace Core.Domain.Vehicles.Cargo
             Width = width;
             Height = height;
             Weight = weight;
+
+            CargoType = CargoType.FreightCargo;
         }
     }
 }
