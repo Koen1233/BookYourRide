@@ -15,5 +15,11 @@ namespace Core.Domain.Vehicles
             Type = VehicleType.Truck;
             MaxLoad = maxLoad;
         }
+
+        public override void CalcWriteOff()
+        {
+            //Nog implementeren
+            throw new NotImplementedException();
+        }
     }
 }

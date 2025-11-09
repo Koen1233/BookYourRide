@@ -25,5 +25,7 @@ namespace Core.Domain.Vehicles
             //Type casting van string naar enum
             //Type = Enum.Parse<VehicleType>("string variabele");
         }
+
+        public abstract void CalcWriteOff();
     }
 }

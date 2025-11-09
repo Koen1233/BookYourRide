@@ -1,6 +1,5 @@
 ﻿using Core.Domain.Helpers;
 using Core.Domain.Vehicles;
-using Core.Domain.Vehicles.Cargo;
 using System;
 using System.Collections.Generic;
 using System.Linq;

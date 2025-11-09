@@ -15,5 +15,10 @@ namespace Core.Domain.Vehicles
             Type = VehicleType.Taxi;
             PassengerSeats = passengerSeats;
         }
+        public override void CalcWriteOff()
+        {
+            //Nog implementeren
+            throw new NotImplementedException();
+        }
     }
 }

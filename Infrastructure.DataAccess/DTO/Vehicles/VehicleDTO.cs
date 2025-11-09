@@ -18,6 +18,7 @@ namespace Infrastructure.DataAccess.DTO.Vehicles
         /// </summary>
         protected int VehicleType { get; set; } 
         //Type nog nodig? Wordt gezet in de child klasse
-        //eigenlijk als Enum ophalen, maar dat lukt nog niet dus dan maar als INT, en in de domein in een ENUM veranderen.
+        //eigenlijk als Enum ophalen, maar dat lukt nog niet
+        //Nu ophalen als INT, en in de domein laag in een ENUM veranderen.
     }
 }
