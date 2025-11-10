@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Domain.Vehicles;
-using Core.Domain.Vehicles.Cargo;
+using Core.Domain;
 using Infrastructure.DataAccess.DTO;
 using Infrastructure.DataAccess.DTO.Cargo;
 using Infrastructure.DataAccess.DTO.Vehicles;

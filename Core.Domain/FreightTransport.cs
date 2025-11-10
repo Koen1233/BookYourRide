@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Domain.Cargo
+namespace Core.Domain
 {
     internal class FreightTransport : Cargo
     {
